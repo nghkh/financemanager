@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "556730669637",
+    "project_id": "baitap-821a3",
+    "storage_bucket": "baitap-821a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556730669637:android:2123d654c00460b622612c",
+        "android_client_info": {
+          "package_name": "com.example.baitap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556730669637-bsi7hdorjs0u10f859b6h20fnqi7gq04.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.baitap",
+            "certificate_hash": "124c6960b56639cd874271f666c280073666f1ab"
+          }
+        },
+        {
+          "client_id": "556730669637-ihbvhv7l9fggnlsio2g1ll1uth9gd5im.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM22kG-7NkYUVOdDzdH-K2pFFnQ_s8xBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556730669637-ihbvhv7l9fggnlsio2g1ll1uth9gd5im.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
