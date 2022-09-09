@@ -1,4 +1,5 @@
 import 'package:baitap/model/controller_signup.dart';
+import 'package:baitap/pages/check.dart';
 import 'package:baitap/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,6 +18,10 @@ void main() {
           name: '/SignUpPage',
           page: () => SignUpPage(),
           binding: SignUpBinding(),
+        ),
+        GetPage(
+          name: '/check',
+          page: () => Check(),
         ),
       ],
     ),

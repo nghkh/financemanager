@@ -7,9 +7,8 @@ import 'package:get/get.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
-ShowPasswords get showPasswords => Get.find<ShowPasswords>();
 
-
+  ShowPasswords get showPasswords => Get.find<ShowPasswords>();
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +46,13 @@ ShowPasswords get showPasswords => Get.find<ShowPasswords>();
               labelText: 'Tên đăng nhập',
             ),
             const SizedBox(height: 80),
-            Obx(()
-              => AppTextField(
+            Obx(
+              () => AppTextField(
                 obscureText: showPasswords.obscureText.value,
                 hintText: 'Nhập mật khẩu',
                 labelText: 'Mật khẩu',
                 suffixIcon: IconButton(
-                  icon: const Icon( Icons.visibility),
+                  icon: const Icon(Icons.visibility),
                   onPressed: () => showPasswords.changeState(),
                 ),
               ),

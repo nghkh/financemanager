@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:onboarding/onboarding.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+// void main() {
+//   runApp(const MyApp());
+// }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Check extends StatefulWidget {
+  const Check({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Check> createState() => _CheckState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _CheckState extends State<Check> {
   late Material materialButton;
   late int index;
   final onboardingPagesList = [
