@@ -9,6 +9,14 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-    return Container();
+    return Scaffold(
+      body: SafeArea(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height*0.3,
+        ),
+
+      ),
+
+    );
   }
 }

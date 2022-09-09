@@ -9,6 +9,7 @@ class AppTextField extends StatelessWidget {
   final Function(String)? onChanged;
   final Function(String)? onSubmitted;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final int minLines;
   final int maxLines;
   final bool obscureText;
@@ -27,7 +28,7 @@ class AppTextField extends StatelessWidget {
     this.maxLines = 1,
     this.obscureText = false,
     this.textAlign = TextAlign.left,
-    this.hintText,
+    this.hintText, this.prefixIcon,
   }) : super(key: key);
 
   @override
@@ -51,6 +52,8 @@ class AppTextField extends StatelessWidget {
         ),
         hintText: hintText,
         labelText: labelText,
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
       ),
     );
   }

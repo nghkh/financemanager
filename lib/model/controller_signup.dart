@@ -10,11 +10,20 @@ class CheckEmail extends GetxController {
   }
 }
 
+class ShowPasswords extends GetxController{
+  RxBool obscureText = false.obs;
+  void changeState() {
+    obscureText.value = !obscureText.value;
+  }
+}
+
+
 class SignUpBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => CheckPasswords());
     Get.lazyPut(() => CheckEmail());
+    Get.lazyPut(() => ShowPasswords());
     // TODO: implement dependencies
   }
 
