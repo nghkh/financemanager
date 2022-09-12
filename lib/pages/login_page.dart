@@ -1,5 +1,6 @@
 import 'package:baitap/Widget/button.dart';
 import 'package:baitap/Widget/text_field.dart';
+import 'package:baitap/constant/text_style.dart';
 import 'package:baitap/model/controller_login.dart';
 import 'package:baitap/model/controller_signup.dart';
 import 'package:flutter/material.dart';
@@ -26,17 +27,14 @@ class LoginPage extends StatelessWidget {
               width: 200,
               height: 200,
             ),
-            Text(
+            const Text(
               'Đăng nhập để tiếp tục',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.black,
-              ),
+              style: AppTextStyle.textStyle3,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            AppTextField(
+            const AppTextField(
               labelText: 'Tên đăng nhập',
               hintText: 'Nhập tên đăng nhập',
             ),
@@ -49,11 +47,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             Row(
-              children: [
-                Checkbox(
-                  value: checkBoxController.checkBoxVal.value,
-                  onChanged: (val) => checkBoxController.onChanged(val!),
-                ),
+              children: const [
                 Text(
                   'Ghi nhớ tài khoản',
                   style: TextStyle(
@@ -63,11 +57,11 @@ class LoginPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             AppButton(
-              onPressed: onPressed,
+              onPressed: (){},
               text: 'Đăng nhập',
             ),
           ],

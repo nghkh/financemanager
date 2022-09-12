@@ -1,5 +1,6 @@
 import 'package:baitap/Widget/button.dart';
 import 'package:baitap/Widget/text_field.dart';
+import 'package:baitap/constant/text_style.dart';
 import 'package:baitap/model/controller_signup.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -30,10 +31,7 @@ class SignUpPage extends StatelessWidget {
             const SizedBox(height: 42),
             const Text(
               'Vui lòng nhập thông tin bên dưới',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-              ),
+              style: AppTextStyle.textStyle2,
             ),
             const SizedBox(height: 90),
             const AppTextField(
@@ -68,17 +66,11 @@ class SignUpPage extends StatelessWidget {
                 children: [
                   TextSpan(
                     text: 'Đã có tài khoản? ',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
-                    ),
+                    style: AppTextStyle.textStyle2,
                   ),
                   TextSpan(
                     text: 'Đăng nhập',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.green,
-                    ),
+                    style: AppTextStyle.textStyle2Green,
                   ),
                 ],
               ),

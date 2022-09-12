@@ -1,7 +1,6 @@
+import 'package:baitap/constant/text_style.dart';
 import 'package:flutter/material.dart';
 
-
-import 'package:flutter/material.dart';
 
 class AppButton extends StatelessWidget {
   final Function() onPressed;
@@ -22,10 +21,7 @@ class AppButton extends StatelessWidget {
       onLongPress: onLongPress,
       child: Text(
         text,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 14,
-        ),
+        style: AppTextStyle.textStyle3Wbold,
       ),
       style: ElevatedButton.styleFrom(
         fixedSize:Size(MediaQuery.of(context).size.width * 0.74,
