@@ -15,67 +15,72 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
-            ),
-            const Text(
-              'TẠO TÀI KHOẢN',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
-            const SizedBox(height: 42),
-            const Text(
-              'Vui lòng nhập thông tin bên dưới',
-              style: AppTextStyle.textStyle2,
-            ),
-            const SizedBox(height: 90),
-            const AppTextField(
-              hintText: 'Nhập địa chỉ E-mail',
-              labelText: 'Địa chỉ E-mail',
-            ),
-            const SizedBox(height: 80),
-            const AppTextField(
-              hintText: 'Nhập tên đăng nhập',
-              labelText: 'Tên đăng nhập',
-            ),
-            const SizedBox(height: 80),
-            Obx(
-              () => AppTextField(
-                obscureText: showPasswords.obscureText.value,
-                hintText: 'Nhập mật khẩu',
-                labelText: 'Mật khẩu',
-                suffixIcon: IconButton(
-                  icon: const Icon(Icons.visibility),
-                  onPressed: () => showPasswords.changeState(),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.2,
                 ),
-              ),
-            ),
-            const SizedBox(height: 153),
-            AppButton(
-              onPressed: () => Container(),
-              text: 'Đăng ký',
-            ),
-            const SizedBox(height: 86),
-            RichText(
-              text: const TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Đã có tài khoản? ',
-                    style: AppTextStyle.textStyle2,
+                const Text(
+                  'TẠO TÀI KHOẢN',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
                   ),
-                  TextSpan(
-                    text: 'Đăng nhập',
-                    style: AppTextStyle.textStyle2Green,
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  'Vui lòng nhập thông tin bên dưới',
+                  style: AppTextStyle.textStyle2,
+                ),
+                const SizedBox(height: 32),
+                const AppTextField(
+                  hintText: 'Nhập địa chỉ E-mail',
+                  labelText: 'Địa chỉ E-mail',
+                ),
+                const AppTextField(
+                  hintText: 'Nhập tên đăng nhập',
+                  labelText: 'Tên đăng nhập',
+                ),
+                Obx(
+                  () => AppTextField(
+                    obscureText: showPasswords.obscureText.value,
+                    hintText: 'Nhập mật khẩu',
+                    labelText: 'Mật khẩu',
+                    suffixIcon: IconButton(
+                      icon: Icon(showPasswords.obscureText.value
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                      onPressed: () => showPasswords.changeState(),
+                    ),
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 24-16),
+                AppButton(
+                  onPressed: () => Container(),
+                  text: 'Đăng ký',
+                ),
+                const SizedBox(height: 24),
+                RichText(
+                  text: const TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Đã có tài khoản? ',
+                        style: AppTextStyle.textStyle2,
+                      ),
+                      TextSpan(
+                        text: 'Đăng nhập',
+                        style: AppTextStyle.textStyle2Green,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

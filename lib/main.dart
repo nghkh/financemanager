@@ -1,3 +1,4 @@
+import 'package:baitap/model/controller_login.dart';
 import 'package:baitap/model/controller_signup.dart';
 import 'package:baitap/pages/check.dart';
 import 'package:baitap/pages/login_page.dart';
@@ -11,11 +12,12 @@ void main() {
       initialRoute: '/',
       getPages: [
         GetPage(
-          name: '/loginPage',
+          name: '/login',
           page: () => LoginPage(),
+          binding: LoginBinding(),
         ),
         GetPage(
-          name: '/SignUpPage',
+          name: '/',
           page: () => SignUpPage(),
           binding: SignUpBinding(),
         ),

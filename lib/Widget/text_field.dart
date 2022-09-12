@@ -33,28 +33,33 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      autofocus: autoFocus,
-      obscureText: obscureText,
-      keyboardType: keyboardType,
-      minLines: minLines,
-      maxLines: minLines > maxLines ? minLines : maxLines,
-      textAlign: textAlign,
-      style: TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
-        color: Colors.black,
-      ),
-      decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(4.0),
+    return Column(
+      children: [
+        TextField(
+          controller: controller,
+          autofocus: autoFocus,
+          obscureText: obscureText,
+          keyboardType: keyboardType,
+          minLines: minLines,
+          maxLines: minLines > maxLines ? minLines : maxLines,
+          textAlign: textAlign,
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            color: Colors.black,
+          ),
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(4.0),
+            ),
+            hintText: hintText,
+            labelText: labelText,
+            prefixIcon: prefixIcon,
+            suffixIcon: suffixIcon,
+          ),
         ),
-        hintText: hintText,
-        labelText: labelText,
-        prefixIcon: prefixIcon,
-        suffixIcon: suffixIcon,
-      ),
+        SizedBox(height: 16,),
+      ],
     );
   }
 }

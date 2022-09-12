@@ -14,7 +14,7 @@ class CheckEmail extends GetxController {
 }
 
 class ShowPasswords extends GetxController{
-  RxBool obscureText = false.obs;
+  RxBool obscureText = true.obs;
   void changeState() {
     obscureText.value = !obscureText.value;
   }
