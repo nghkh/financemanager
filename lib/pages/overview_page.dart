@@ -18,31 +18,19 @@ class OverviewPage extends StatelessWidget {
         child: Row(
           children: [
             IconButton(
-              icon: Icon(
-                Icons.menu,
-                color: Colors.white,
-              ),
+              icon: Icon(Icons.home),
               onPressed: () {},
             ),
             IconButton(
-              icon: Icon(
-                Icons.search,
-                color: Colors.white,
-              ),
+              icon: Icon(Icons.wallet),
               onPressed: () {},
             ),
             IconButton(
-              icon: Icon(
-                Icons.print,
-                color: Colors.white,
-              ),
+              icon: Icon(Icons.task),
               onPressed: () {},
             ),
             IconButton(
-              icon: Icon(
-                Icons.people,
-                color: Colors.white,
-              ),
+              icon: Icon(Icons.people),
               onPressed: () {},
             ),
           ],
