@@ -1,4 +1,4 @@
-import 'package:baitap/model/controller_signup.dart';
+import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
 import 'package:get/get.dart';
 
 class CheckBoxController extends GetxController {

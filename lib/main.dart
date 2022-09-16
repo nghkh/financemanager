@@ -1,10 +1,10 @@
-import 'package:baitap/model/controller_login.dart';
-import 'package:baitap/model/controller_signup.dart';
+import 'package:baitap/pages/login_signup/controller/controller_login.dart';
+import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
 import 'package:baitap/pages/check.dart';
-import 'package:baitap/pages/login_page.dart';
+import 'package:baitap/pages/login_signup/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:baitap/pages/sign_up_page.dart';
+import 'package:baitap/pages/login_signup/sign_up_page.dart';
 
 void main() {
   runApp(

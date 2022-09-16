@@ -1,8 +1,8 @@
 import 'package:baitap/Widget/button.dart';
 import 'package:baitap/Widget/text_field.dart';
 import 'package:baitap/constant/text_style.dart';
-import 'package:baitap/model/controller_login.dart';
-import 'package:baitap/model/controller_signup.dart';
+import 'package:baitap/pages/login_signup/controller/controller_login.dart';
+import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

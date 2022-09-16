@@ -25,8 +25,7 @@ class AppButton extends StatelessWidget {
       ),
       style: ElevatedButton.styleFrom(
         fixedSize:Size(MediaQuery.of(context).size.width * 0.74,
-                MediaQuery.of(context).size.height * 0.05),
-        primary: Colors.green,
+                MediaQuery.of(context).size.height * 0.05), backgroundColor: Colors.green,
       ),
     );
   }

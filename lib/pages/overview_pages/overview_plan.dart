@@ -1,6 +1,6 @@
 import 'package:baitap/constant/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:baitap/model/controller_overview_plan.dart';
+import 'package:baitap/pages/overview_pages/controller/controller_overview_plan.dart';
 import 'package:get/get.dart';
 
 class OverViewSum extends StatelessWidget {
@@ -44,17 +44,26 @@ class OverViewSum extends StatelessWidget {
           return Row(
             children: [
               controller.dataListViews[index].icon,
-              Column(
-                children: [
-                  Text(
-                    controller.dataListViews[index].title,
-                    style: AppTextStyle.textStyle2Green,
-                  ),
-                  Text(
-                    controller.dataListViews[index].content,
-                    style: AppTextStyle.textStyle3,
-                  ),
-                ],
+              Expanded(
+                child: Column(
+                  children: [
+                    Text(
+                      controller.dataListViews[index].title,
+                      style: AppTextStyle.textStyle2Green,
+                    ),
+                    Text(
+                      controller.dataListViews[index].content,
+                      style: AppTextStyle.textStyle3,
+                    ),
+                  ],
+                ),
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.forward,
+                  size: 14,
+                ),
+                onPressed: controller.dataListViews[index].onTap,
               ),
             ],
           );
