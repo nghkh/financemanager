@@ -1,7 +1,6 @@
 import 'package:baitap/constant/text_style.dart';
 import 'package:flutter/material.dart';
 
-
 class AppButton extends StatelessWidget {
   final Function() onPressed;
   final Function()? onLongPress;
@@ -19,13 +18,14 @@ class AppButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       onLongPress: onLongPress,
+      style: ElevatedButton.styleFrom(
+        fixedSize: Size(MediaQuery.of(context).size.width * 0.74,
+            MediaQuery.of(context).size.height * 0.05),
+        backgroundColor: Colors.green,
+      ),
       child: Text(
         text,
         style: AppTextStyle.textStyle3Wbold,
-      ),
-      style: ElevatedButton.styleFrom(
-        fixedSize:Size(MediaQuery.of(context).size.width * 0.74,
-                MediaQuery.of(context).size.height * 0.05), backgroundColor: Colors.green,
       ),
     );
   }

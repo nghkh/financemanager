@@ -15,24 +15,10 @@ class OverviewPage extends StatelessWidget {
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 5,
-        child: Row(
-          children: [
-            IconButton(
-              icon: Icon(Icons.home),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(Icons.wallet),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(Icons.task),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(Icons.people),
-              onPressed: () {},
-            ),
+        child: BottomNavigationBar(
+          elevation: 0,
+          items: [
+            BottomNavigationBarItem(icon: )
           ],
         ),
       ),
