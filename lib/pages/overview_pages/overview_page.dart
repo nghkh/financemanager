@@ -18,7 +18,7 @@ class OverviewPage extends StatelessWidget {
         child: BottomNavigationBar(
           elevation: 0,
           items: [
-            BottomNavigationBarItem(icon: )
+            BottomNavigationBarItem(icon: Icon(Icons.add))
           ],
         ),
       ),
