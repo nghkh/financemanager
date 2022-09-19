@@ -1,9 +1,12 @@
 import 'package:baitap/constant/text_style.dart';
+import 'package:baitap/pages/overview_pages/controller/wallet_controller.dart';
+import 'package:baitap/pages/overview_pages/tab_wallet/pev_month.dart';
+import 'package:baitap/pages/overview_pages/tab_wallet/this_month_page.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 class OverviewWallet extends StatelessWidget {
   const OverviewWallet({Key? key}) : super(key: key);
-
+  WalletController get controller => Get.find<WalletController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +19,13 @@ class OverviewWallet extends StatelessWidget {
               style: AppTextStyle.textStyle1,),
           ],
         ),
-        bottom:,
+        bottom: TabBar(
+          controller: controller.tabController,
+          tabs: [
+            PreviousMonth(),
+            ThisMonth(),
+          ],
+        ),
       ),
     );
   }

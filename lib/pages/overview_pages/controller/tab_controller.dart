@@ -1,7 +1,7 @@
-import 'package:baitap/pages/overview_pages/overview_account.dart';
-import 'package:baitap/pages/overview_pages/overview_home.dart';
-import 'package:baitap/pages/overview_pages/overview_plan.dart';
-import 'package:baitap/pages/overview_pages/overview_wallet.dart';
+import 'package:baitap/pages/overview_pages/tab_overview/overview_account.dart';
+import 'package:baitap/pages/overview_pages/tab_overview/overview_home.dart';
+import 'package:baitap/pages/overview_pages/tab_overview/overview_plan.dart';
+import 'package:baitap/pages/overview_pages/tab_overview/overview_wallet.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,6 +25,7 @@ class TabAppController extends GetxController {
       return GetPageRoute(
         settings: settings,
         page: () => const OverviewWallet(),
+        binding: TabBinding(),
       );
     } else if (settings.name == '/plan'){
       return GetPageRoute(
