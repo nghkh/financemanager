@@ -1,3 +1,4 @@
+import 'package:baitap/pages/overview_pages/controller/wallet_controller.dart';
 import 'package:baitap/pages/overview_pages/tab_overview/overview_account.dart';
 import 'package:baitap/pages/overview_pages/tab_overview/overview_home.dart';
 import 'package:baitap/pages/overview_pages/tab_overview/overview_plan.dart';
@@ -25,7 +26,7 @@ class TabAppController extends GetxController {
       return GetPageRoute(
         settings: settings,
         page: () => const OverviewWallet(),
-        binding: TabBinding(),
+        binding: WalletBinding(),
       );
     } else if (settings.name == '/plan'){
       return GetPageRoute(

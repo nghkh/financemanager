@@ -28,7 +28,7 @@ class Overview extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.task),
-              label: 'Kế hoacch',
+              label: 'Kế hoạch',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.manage_accounts),

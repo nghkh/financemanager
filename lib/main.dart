@@ -22,7 +22,7 @@ void main() {
           binding: LoginBinding(),
         ),
         GetPage(
-          name: '/',
+          name: '/signup',
           page: () => SignUpPage(),
           binding: SignUpBinding(),
         ),
@@ -31,7 +31,7 @@ void main() {
           page: () => Check(),
         ),
         GetPage(
-          name: '/overview',
+          name: '/',
           page: () => Overview(),
           binding: TabBinding(),
         ),
