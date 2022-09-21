@@ -10,10 +10,11 @@ class OverViewSum extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Tab(
-      child: SafeArea(
+    return Scaffold(
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               buildHeader(),
               buildBody(),
@@ -40,12 +41,14 @@ class OverViewSum extends StatelessWidget {
 
   Widget buildBody() {
     return ListView.separated(
+      shrinkWrap: true,
         itemBuilder: (context, index) {
           return Row(
             children: [
               controller.dataListViews[index].icon,
               Expanded(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       controller.dataListViews[index].title,

@@ -24,6 +24,10 @@ abstract class AppTextStyle {
     fontSize: 14,
     color: Colors.black,
   );
+  static const TextStyle textStyle3Grey = TextStyle(
+    fontSize: 14,
+    color: Colors.black,
+  );
   static const TextStyle textStyle3bold = TextStyle(
     fontSize: 14,
     color: Colors.black,

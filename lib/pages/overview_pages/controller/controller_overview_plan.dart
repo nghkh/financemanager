@@ -30,3 +30,14 @@ class OverviewPlanController extends GetxController {
     super.onInit();
   }
 }
+
+class PlanBinding implements Bindings{
+
+  @override
+  void dependencies() {
+    Get.lazyPut(()=>OverviewPlanController());
+    // TODO: implement dependencies
+  }
+
+}
+
