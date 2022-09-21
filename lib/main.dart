@@ -2,6 +2,8 @@ import 'package:baitap/pages/login_signup/controller/controller_login.dart';
 import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
 import 'package:baitap/pages/check.dart';
 import 'package:baitap/pages/login_signup/login_page.dart';
+import 'package:baitap/pages/profile_basicInfo.dart';
+import 'package:baitap/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:baitap/pages/login_signup/sign_up_page.dart';
@@ -24,6 +26,14 @@ void main() {
         GetPage(
           name: '/check',
           page: () => Check(),
+        ),
+        GetPage(
+          name: '/profile_basicInfo',
+          page: () => Profile_info(),
+        ),
+        GetPage(
+          name: '/profile_page',
+          page: (() => profile_page()),
         ),
       ],
     ),
