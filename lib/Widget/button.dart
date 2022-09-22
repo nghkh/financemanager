@@ -25,7 +25,7 @@ class AppButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: AppTextStyle.textStyle3Wbold,
+        style: AppTextStyle.textStyle3WBold,
       ),
     );
   }

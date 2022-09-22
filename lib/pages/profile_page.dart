@@ -1,13 +1,10 @@
-import 'package:baitap/Widget/containerForProfile.dart';
-import 'package:baitap/Widget/profilePic.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:baitap/Widget/container_for_profile.dart';
+import 'package:baitap/Widget/profile_pic.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class profile_page extends StatelessWidget {
-  const profile_page({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,34 +48,34 @@ class profile_page extends StatelessWidget {
                       ),
                     ],
                   ),
-                  getContainerForProfile(
-                    Text1: 'first name',
-                    Text2: 'John',
+                  GetContainerForProfile(
+                    text1: 'first name',
+                    text2: 'John',
                   ),
-                  getContainerForProfile(
-                    Text1: 'last name',
-                    Text2: 'Doe',
+                  GetContainerForProfile(
+                    text1: 'last name',
+                    text2: 'Doe',
                   ),
-                  getContainerForProfile(
-                    Text1: 'System ID member',
-                    Text2: '123456789',
+                  GetContainerForProfile(
+                    text1: 'System ID member',
+                    text2: '123456789',
                   ),
-                  getContainerForProfile(
-                    Text1: 'ID member',
-                    Text2: 'user name',
+                  GetContainerForProfile(
+                    text1: 'ID member',
+                    text2: 'user name',
                   ),
-                  getContainerForProfile(Text1: 'gender', Text2: 'Male'),
-                  getContainerForProfile(
-                    Text1: 'Martial Status',
-                    Text2: 'Single',
+                  GetContainerForProfile(text1: 'gender', text2: 'Male'),
+                  GetContainerForProfile(
+                    text1: 'Martial Status',
+                    text2: 'Single',
                   ),
-                  getContainerForProfile(
-                    Text1: 'Date of birth',
-                    Text2: '01/01/2000',
+                  GetContainerForProfile(
+                    text1: 'Date of birth',
+                    text2: '01/01/2000',
                   ),
-                  getContainerForProfile(
-                    Text1: 'Join date',
-                    Text2: '10/10/2020',
+                  GetContainerForProfile(
+                    text1: 'Join date',
+                    text2: '10/10/2020',
                   ),
                   SizedBox(
                     height: 20,
@@ -101,21 +98,21 @@ class profile_page extends StatelessWidget {
                       ),
                     ],
                   ),
-                  getContainerForProfile(
-                    Text1: 'Mobile phone 1',
-                    Text2: '0123456789',
+                  GetContainerForProfile(
+                    text1: 'Mobile phone 1',
+                    text2: '0123456789',
                   ),
-                  getContainerForProfile(
-                    Text1: 'Mobile phone 2',
-                    Text2: '0123456789',
+                  GetContainerForProfile(
+                    text1: 'Mobile phone 2',
+                    text2: '0123456789',
                   ),
-                  getContainerForProfile(
-                    Text1: 'Email',
-                    Text2: 'johndoe@gmail.com',
+                  GetContainerForProfile(
+                    text1: 'Email',
+                    text2: 'johndoe@gmail.com',
                   ),
-                  getContainerForProfile(
-                    Text1: 'Address',
-                    Text2: '123 abc street',
+                  GetContainerForProfile(
+                    text1: 'Address',
+                    text2: '123 abc street',
                   ),
                   SizedBox(
                     height: 20,
@@ -138,27 +135,27 @@ class profile_page extends StatelessWidget {
                       ),
                     ],
                   ),
-                  getContainerForProfile(
-                    Text1: 'Name',
-                    Text2: 'Jane Doe',
+                  GetContainerForProfile(
+                    text1: 'Name',
+                    text2: 'Jane Doe',
                   ),
-                  getContainerForProfile(
-                    Text1: 'Relationship',
-                    Text2: 'Wife',
+                  GetContainerForProfile(
+                    text1: 'Relationship',
+                    text2: 'Wife',
                   ),
-                  getContainerForProfile(
-                    Text1: 'Mobile phone',
-                    Text2: '0123456789',
+                  GetContainerForProfile(
+                    text1: 'Mobile phone',
+                    text2: '0123456789',
                   ),
-                  getContainerForProfile(
-                      Text1: 'Email', Text2: 'johndoe@gmail.com'),
-                  getContainerForProfile(
-                    Text1: 'postal address',
-                    Text2: '',
+                  GetContainerForProfile(
+                      text1: 'Email', text2: 'johndoe@gmail.com'),
+                  GetContainerForProfile(
+                    text1: 'postal address',
+                    text2: '',
                   ),
-                  getContainerForProfile(
-                    Text1: 'physical Address',
-                    Text2: '123 abc street',
+                  GetContainerForProfile(
+                    text1: 'physical Address',
+                    text2: '123 abc street',
                   ),
                   SizedBox(
                     height: 20,
@@ -171,10 +168,4 @@ class profile_page extends StatelessWidget {
       ),
     ));
   }
-}
-
-void main(List<String> args) {
-  runApp(MaterialApp(
-    home: profile_page(),
-  ));
 }

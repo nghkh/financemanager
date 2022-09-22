@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 abstract class AppTextStyle {
   const AppTextStyle._();
@@ -33,9 +32,14 @@ abstract class AppTextStyle {
     color: Colors.black,
     fontWeight: FontWeight.bold,
   );
-  static const TextStyle textStyle3Wbold = TextStyle(
+  static const TextStyle textStyle3WBold = TextStyle(
     fontSize: 14,
     color: Colors.white,
+    fontWeight: FontWeight.bold,
+  );
+  static const TextStyle textStyle3GBold = TextStyle(
+    fontSize: 14,
+    color: Colors.grey,
     fontWeight: FontWeight.bold,
   );
 }

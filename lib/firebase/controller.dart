@@ -1,4 +1,4 @@
-import 'package:baitap/generated_plugin_registrant.dart';
+import 'package:baitap/firebase/controller/abc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
@@ -12,18 +12,18 @@ class AuthController extends GetxController {
     firebaseUser = Rx<User?>(auth.currentUser);
     firebaseUser.bindStream(auth.userChanges());
 
-    ever(firebaseUser, _setInitialScreen);
+    // ever(firebaseUser, _setInitialScreen);
   }
 
-  _setInitialScreen(User? user) {
-    if (user != null) {
-      // user is logged in
-      Get.offAll(() => const Home());
-    } else {
-      // user is null as in user is not available or not logged in
-      Get.offAll(() => Login());
-    }
-  }
+  // _setInitialScreen(User? user) {
+  //   if (user != null) {
+  //     // user is logged in
+  //     Get.offAll(() => const Home());
+  //   } else {
+  //     // user is null as in user is not available or not logged in
+  //     Get.offAll(() => Login());
+  //   }
+  // }
 
   void register(String email, String password) async {
     try {

@@ -4,16 +4,20 @@ import 'package:baitap/pages/check.dart';
 import 'package:baitap/pages/login_signup/login_page.dart';
 import 'package:baitap/pages/overview_pages/controller/tab_controller.dart';
 import 'package:baitap/pages/overview_pages/overview.dart';
-import 'package:baitap/pages/profile_basicInfo.dart';
+import 'package:baitap/pages/profile_basic_info.dart';
 import 'package:baitap/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:baitap/pages/login_signup/sign_up_page.dart';
 
 void main() {
+  String name ="";
+  print(name);
   runApp(
     GetMaterialApp(
-      theme: ThemeData(),
+      theme: ThemeData(
+        primaryColor:
+      Colors.green),
       initialRoute: '/',
       getPages: [
         GetPage(
@@ -31,17 +35,17 @@ void main() {
           page: () => Check(),
         ),
         GetPage(
-          name: '/',
+          name: '/overview',
           page: () => Overview(),
           binding: TabBinding(),
         ),
         GetPage(
-          name: '/profile_basicInfo',
-          page: () => Profile_info(),
+          name: '/',
+          page: () => ProfileInfo(),
         ),
         GetPage(
           name: '/profile_page',
-          page: (() => profile_page()),
+          page: (() => ProfilePage()),
         ),
       ],
     ),
