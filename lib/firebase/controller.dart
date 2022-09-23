@@ -1,4 +1,6 @@
-import 'package:baitap/firebase/controller/abc.dart';
+import 'package:baitap/firebase/controller/firebase_constant.dart';
+import 'package:baitap/pages/login_signup/login_page.dart';
+import 'package:baitap/pages/login_signup/sign_up_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
@@ -18,10 +20,10 @@ class AuthController extends GetxController {
   // _setInitialScreen(User? user) {
   //   if (user != null) {
   //     // user is logged in
-  //     Get.offAll(() => const Home());
+  //     Get.offAll(() => const SignUpPage());
   //   } else {
   //     // user is null as in user is not available or not logged in
-  //     Get.offAll(() => Login());
+  //     Get.to(() => LoginPage());
   //   }
   // }
 
@@ -48,13 +50,16 @@ class AuthController extends GetxController {
 
   void login(String email, String password) async {
     try {
-      await auth.signInWithEmailAndPassword(email: email, password: password);
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email,
+          password: password
+      );
     } on FirebaseAuthException catch (e) {
-      // this is solely for the Firebase Auth Exception
-      // for example : password did not match
-      print(e.message);
-    } catch (e) {
-      print(e.toString());
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
     }
   }
 

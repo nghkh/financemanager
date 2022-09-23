@@ -51,7 +51,7 @@ class ProfileInfoState extends State<ProfileInfo> {
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: getDropDown(
+                    child: GetDropDown(
                       items: dropdownGender,
                       hint: "giới tính",
                     ),
@@ -62,7 +62,7 @@ class ProfileInfoState extends State<ProfileInfo> {
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: getDropDown(
+                    child: GetDropDown(
                       items: dropdownMarial,
                       hint: "tình trạng hôn nhân",
                     ),

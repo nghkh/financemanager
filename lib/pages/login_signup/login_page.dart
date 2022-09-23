@@ -1,6 +1,7 @@
 import 'package:baitap/Widget/button.dart';
 import 'package:baitap/Widget/text_field.dart';
 import 'package:baitap/constant/text_style.dart';
+import 'package:baitap/firebase/controller.dart';
 import 'package:baitap/pages/login_signup/controller/controller_login.dart';
 import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
 import 'package:flutter/material.dart';
@@ -9,9 +10,11 @@ import 'package:get/get.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
-  ShowPasswords get showPasswords => Get.find<ShowPasswords>();
+  // ShowPasswords get showPasswords => Get.find<ShowPasswords>();
 
-  CheckBoxController get checkBoxController => Get.find<CheckBoxController>();
+  // EmailPassController get emailPassController => Get.find<EmailPassController>();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,22 +35,31 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const AppTextField(
-                labelText: 'Tên đăng nhập',
-                hintText: 'Nhập tên đăng nhập',
+              AppTextField(
+                labelText: 'Email',
+                hintText: 'Nhập E-mail',
+                controller: Get.find<EmailPassController>().emailController,
+                textInputAction: TextInputAction.done,
+                // onSubmitted: (email) {
+                //   EmailPassController().emailController.text;
+                // },
               ),
               Obx(
-                () => AppTextField(
-                  obscureText: showPasswords.obscureText.value,
-                  hintText: 'Nhập mật khẩu',
-                  labelText: 'Mật khẩu',
-                  suffixIcon: IconButton(
-                    icon: Icon(showPasswords.obscureText.value
-                        ? Icons.visibility
-                        : Icons.visibility_off),
-                    onPressed: () => showPasswords.changeState(),
-                  ),
-                ),
+                    () =>
+                    AppTextField(
+                      obscureText: Get.find<ShowPasswords>().obscureText.value,
+                      hintText: 'Nhập mật khẩu',
+                      labelText: 'Mật khẩu',
+                      controller: Get.find<EmailPassController>().passwordController,
+                      // onSubmitted: (password){EmailPassController().passwordController.text;},
+                      textInputAction: TextInputAction.done,
+                      suffixIcon: IconButton(
+                        icon: Icon(Get.find<ShowPasswords>().obscureText.value
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                        onPressed: () => Get.find<ShowPasswords>().changeState(),
+                      ),
+                    ),
               ),
               Row(
                 children: const [
@@ -64,7 +76,12 @@ class LoginPage extends StatelessWidget {
                 height: 30,
               ),
               AppButton(
-                onPressed: () {},
+                onPressed: () {
+                  AuthController.authInstance.login(
+                    EmailPassController().emailController.text.trim(),
+                    EmailPassController().passwordController.text.trim(),
+                  );
+                },
                 text: 'Đăng nhập',
               ),
             ],

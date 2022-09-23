@@ -3,25 +3,25 @@ import 'package:flutter/material.dart';
 
 List<DropdownMenuItem<String>> get dropdownItems {
   List<DropdownMenuItem<String>> menuItems = [
-    DropdownMenuItem(value: "USA", child: Text("USA")),
-    DropdownMenuItem(value: "Canada", child: Text("Canada")),
-    DropdownMenuItem(value: "Brazil", child: Text("Brazil")),
-    DropdownMenuItem(value: "England", child: Text("England")),
+    const DropdownMenuItem(value: "USA", child: Text("USA")),
+    const DropdownMenuItem(value: "Canada", child: Text("Canada")),
+    const DropdownMenuItem(value: "Brazil", child: Text("Brazil")),
+    const DropdownMenuItem(value: "England", child: Text("England")),
   ];
   return menuItems;
 }
 
 List<DropdownMenuItem<String>> get dropdownGender {
   List<DropdownMenuItem<String>> menuItems = [
-    DropdownMenuItem(value: "male", child: Text("male")),
-    DropdownMenuItem(value: "female", child: Text("female")),
+    const DropdownMenuItem(value: "male", child: Text("male")),
+    const DropdownMenuItem(value: "female", child: Text("female")),
   ];
   return menuItems;
 }
 
 List<DropdownMenuItem<String>> get dropdownMarial {
   List<DropdownMenuItem<String>> menuItems = [
-    DropdownMenuItem(
+    const DropdownMenuItem(
       value: "???",
       child: Text("???"),
     )
@@ -34,33 +34,33 @@ void main() {
     title: "Dropdown Button",
     home: Scaffold(
       appBar: AppBar(
-        title: Text("Dropdown Button"),
+        title: const Text("Dropdown Button"),
       ),
       body: Center(
-        child: getDropDown(items: dropdownGender, hint: "Select gender"),
+        child: GetDropDown(items: dropdownGender, hint: "Select gender"),
       ),
     ),
   ));
 }
 
-class getDropDown extends StatefulWidget {
-  @override
+class GetDropDown extends StatefulWidget {
   final List<DropdownMenuItem<String>>? items;
   final String? hint;
 
   final Function(String)? onChanged;
 
-  const getDropDown({
+  const GetDropDown({
     Key? key,
     this.items,
     this.hint,
     this.onChanged,
   }) : super(key: key);
 
-  _getDropDownState createState() => _getDropDownState();
+  @override
+  _GetDropDownState createState() => _GetDropDownState();
 }
 
-class _getDropDownState extends State<getDropDown> {
+class _GetDropDownState extends State<GetDropDown> {
   String? _selectedValue;
 
   @override
