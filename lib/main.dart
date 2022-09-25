@@ -1,13 +1,12 @@
 import 'package:baitap/firebase/controller.dart';
 import 'package:baitap/pages/login_signup/controller/controller_login.dart';
 import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
-import 'package:baitap/pages/check.dart';
+import 'package:baitap/pages/intro/intro_screen.dart';
 import 'package:baitap/pages/login_signup/login_page.dart';
 import 'package:baitap/pages/overview_pages/controller/tab_controller.dart';
 import 'package:baitap/pages/overview_pages/overview.dart';
 import 'package:baitap/pages/profile_basic_info.dart';
 import 'package:baitap/pages/profile_page.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:baitap/pages/login_signup/sign_up_page.dart';
@@ -21,38 +20,39 @@ void main() async {
       });
   runApp(
     GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.green,
-        iconTheme: IconThemeData(color: Colors.green, opacity: 1),
+        iconTheme: const IconThemeData(color: Colors.green, opacity: 1),
       ),
       initialRoute: '/',
       getPages: [
         GetPage(
           name: '/login',
-          page: () => LoginPage(),
+          page: () => const LoginPage(),
           binding: LoginBinding(),
         ),
         GetPage(
           name: '/signup',
-          page: () => SignUpPage(),
+          page: () => const SignUpPage(),
           binding: SignUpBinding(),
         ),
         GetPage(
-          name: '/check',
-          page: () => Check(),
+          name: '/',
+          page: () => const IntroScreen(),
         ),
         GetPage(
-          name: '/',
-          page: () => Overview(),
+          name: '/overview',
+          page: () => const Overview(),
           binding: TabBinding(),
         ),
         GetPage(
           name: '/profile_info',
-          page: () => ProfileInfo(),
+          page: () => const ProfileInfo(),
         ),
         GetPage(
           name: '/profile_page',
-          page: (() => ProfilePage()),
+          page: (() => const ProfilePage()),
         ),
       ],
     ),
