@@ -14,23 +14,30 @@ class OverviewWallet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Column(
-          children: [
-            Text(
-              'Số dư',
-              style: AppTextStyle.textStyle3Grey,
-            ),
-            Text(
-              '100000 VNĐ',
-              style: AppTextStyle.textStyle1,
-            ),
-          ],
+        automaticallyImplyLeading: false,
+        title: Center(
+          child: Column(
+            children: [
+              Text(
+                'Số dư',
+                style: AppTextStyle.textStyle3Grey,
+              ),
+              Text(
+                '100000 VNĐ',
+                style: AppTextStyle.textStyle1,
+              ),
+            ],
+          ),
         ),
         bottom: TabBar(
           controller: controller.tabController,
           tabs: [
-            Tab(icon: Icon(Icons.directions_car)),
-            Tab(icon: Icon(Icons.directions_bike)),
+            Tab(
+              text: 'Tháng trước',
+            ),
+            Tab(
+              text: 'Tháng này',
+            ),
           ],
         ),
       ),

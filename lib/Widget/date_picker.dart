@@ -27,11 +27,14 @@ class DatePickerApp extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Obx(() => Text(
-                      "${controller.selectedDate.value.toLocal()}"
-                          .split(' ')[0],
-                      style: AppTextStyle.textStyle3GBold,
-                    )),
+                Obx(() => Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                        "${controller.selectedDate.value.toLocal()}"
+                            .split(' ')[0],
+                        style: AppTextStyle.textStyle3GBold,
+                      ),
+                )),
                 const Spacer(),
                 const Icon(
                   Icons.calendar_today,

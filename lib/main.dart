@@ -17,17 +17,18 @@ import 'firebase/controller/firebase_constant.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await firebaseInitialization.then((value) => {
-    Get.put(AuthController()),
-  });
+        Get.put(AuthController()),
+      });
   runApp(
     GetMaterialApp(
       theme: ThemeData(
-        primaryColor:
-      Colors.green),
+        primaryColor: Colors.green,
+        iconTheme: IconThemeData(color: Colors.green, opacity: 1),
+      ),
       initialRoute: '/',
       getPages: [
         GetPage(
-          name: '/',
+          name: '/login',
           page: () => LoginPage(),
           binding: LoginBinding(),
         ),
@@ -41,7 +42,7 @@ void main() async {
           page: () => Check(),
         ),
         GetPage(
-          name: '/overview',
+          name: '/',
           page: () => Overview(),
           binding: TabBinding(),
         ),
@@ -57,4 +58,3 @@ void main() async {
     ),
   );
 }
-

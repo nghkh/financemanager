@@ -42,4 +42,9 @@ abstract class AppTextStyle {
     color: Colors.grey,
     fontWeight: FontWeight.bold,
   );
+  static const TextStyle textStyle4Black = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
 }
