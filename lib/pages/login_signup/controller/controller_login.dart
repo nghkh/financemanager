@@ -1,5 +1,6 @@
 import 'package:baitap/firebase/controller.dart';
 import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -17,8 +18,23 @@ class EmailPassController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  String get email => emailController.text.trim();
-  String get password => passwordController.text.trim();
+  void login() async {
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text,
+      );
+      // credential.user!.uid;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+      // Get.toNamed('/overview');
+    }
+  }
+
 }
 
 class LoginButtonController extends GetxController{
@@ -31,7 +47,7 @@ class LoginBinding implements Bindings {
     Get.lazyPut<CheckBoxLoginController>(() => CheckBoxLoginController());
     Get.lazyPut<EmailPassController>(() => EmailPassController());
     Get.lazyPut<LoginButtonController>(() => LoginButtonController());
-    // Get.lazyPut(() => AuthController());
+    Get.lazyPut(() => AuthController());
     // TODO: implement dependencies
   }
 }

@@ -19,72 +19,72 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Image.asset(
-                'assets/login_logo.png',
-                width: 200,
-                height: 200,
-              ),
-              const Text(
-                'Đăng nhập để tiếp tục',
-                style: AppTextStyle.textStyle3,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              AppTextField(
-                labelText: 'Email',
-                hintText: 'Nhập E-mail',
-                controller: Get.find<EmailPassController>().emailController,
-                textInputAction: TextInputAction.done,
-                // onSubmitted: (email) {
-                //   EmailPassController().emailController.text;
-                // },
-              ),
-              Obx(
-                    () =>
-                    AppTextField(
-                      obscureText: Get.find<ShowPasswords>().obscureText.value,
-                      hintText: 'Nhập mật khẩu',
-                      labelText: 'Mật khẩu',
-                      controller: Get.find<EmailPassController>().passwordController,
-                      // onSubmitted: (password){EmailPassController().passwordController.text;},
-                      textInputAction: TextInputAction.done,
-                      suffixIcon: IconButton(
-                        icon: Icon(Get.find<ShowPasswords>().obscureText.value
-                            ? Icons.visibility
-                            : Icons.visibility_off),
-                        onPressed: () => Get.find<ShowPasswords>().changeState(),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Image.asset(
+                  'assets/login_logo.png',
+                  width: 200,
+                  height: 200,
+                ),
+                const Text(
+                  'Đăng nhập để tiếp tục',
+                  style: AppTextStyle.textStyle3,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.1,
+                ),
+                AppTextField(
+                  labelText: 'Email',
+                  hintText: 'Nhập E-mail',
+                  controller: Get.find<EmailPassController>().emailController,
+                  textInputAction: TextInputAction.done,
+                  // onSubmitted: (email) {
+                  //   EmailPassController().emailController.text;
+                  // },
+                ),
+                Obx(
+                      () =>
+                      AppTextField(
+                        obscureText: Get.find<ShowPasswords>().obscureText.value,
+                        hintText: 'Nhập mật khẩu',
+                        labelText: 'Mật khẩu',
+                        controller: Get.find<EmailPassController>().passwordController,
+                        // onSubmitted: (password){EmailPassController().passwordController.text;},
+                        textInputAction: TextInputAction.done,
+                        suffixIcon: IconButton(
+                          icon: Icon(Get.find<ShowPasswords>().obscureText.value
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                          onPressed: () => Get.find<ShowPasswords>().changeState(),
+                        ),
+                      ),
+                ),
+                Row(
+                  children: const [
+                    Text(
+                      'Ghi nhớ tài khoản',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.black,
                       ),
                     ),
-              ),
-              Row(
-                children: const [
-                  Text(
-                    'Ghi nhớ tài khoản',
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              AppButton(
-                onPressed: () {
-                  AuthController.authInstance.login(
-                    EmailPassController().emailController.text.trim(),
-                    EmailPassController().passwordController.text.trim(),
-                  );
-                },
-                text: 'Đăng nhập',
-              ),
-            ],
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                AppButton(
+                  onPressed: () {
+                    Get.find<EmailPassController>().login();
+                  },
+                  text: 'Đăng nhập',
+                ),
+              ],
+            ),
           ),
         ),
       ),

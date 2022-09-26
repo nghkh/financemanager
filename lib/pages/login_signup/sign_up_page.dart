@@ -41,10 +41,6 @@ class SignUpPage extends StatelessWidget {
                   hintText: 'Nhập địa chỉ E-mail',
                   labelText: 'Địa chỉ E-mail',
                 ),
-                const AppTextField(
-                  hintText: 'Nhập tên đăng nhập',
-                  labelText: 'Tên đăng nhập',
-                ),
                 Obx(
                   () => AppTextField(
                     obscureText: showPasswords.obscureText.value,
@@ -65,7 +61,7 @@ class SignUpPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 RichText(
-                  text: const TextSpan(
+                  text: TextSpan(
                     children: [
                       TextSpan(
                         text: 'Đã có tài khoản? ',
@@ -74,6 +70,9 @@ class SignUpPage extends StatelessWidget {
                       TextSpan(
                         text: 'Đăng nhập',
                         style: AppTextStyle.textStyle2Green,
+                        recognizer: TapGestureRecognizer()..onTap = () {
+                         Get.toNamed('/login'); // Single tapped.
+                        },
                       ),
                     ],
                   ),
