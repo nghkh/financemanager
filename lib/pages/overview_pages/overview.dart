@@ -12,7 +12,7 @@ class Overview extends StatelessWidget {
     return Scaffold(
       body: Navigator(
         key: Get.nestedKey(1),
-        initialRoute: '/overview',
+        initialRoute: '/overview_home',
         onGenerateRoute: controller.onGenerateRoute,
       ),
       floatingActionButton: FloatingActionButton(
