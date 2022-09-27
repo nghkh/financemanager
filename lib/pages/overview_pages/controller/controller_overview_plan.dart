@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:baitap/constant/data_listview_plan.dart';
+import 'package:baitap/model/data_listview_plan.dart';
 import 'package:flutter/material.dart';
 
 class OverviewPlanController extends GetxController {
