@@ -24,6 +24,7 @@ class EmailPassController extends GetxController {
           email: emailController.text,
           password: passwordController.text,
       );
+      Get.toNamed('/overview');
       // credential.user!.uid;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -31,7 +32,6 @@ class EmailPassController extends GetxController {
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
       }
-      // Get.toNamed('/overview');
     }
   }
 
