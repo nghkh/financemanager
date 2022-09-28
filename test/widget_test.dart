@@ -1,196 +1,123 @@
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
-void main() {
-  runApp(GetMaterialApp(
-    debugShowCheckedModeBanner: false,
-    initialRoute: '/home',
-    defaultTransition: Transition.fade,
-    getPages: [
-      GetPage(
-        name: '/home',
-        page: () => HomePage(),
-        binding: HomeBinding(),
-      ),
-      GetPage(
-        name: '/another',
-        page: () => AnotherPage(),
-      ),
-    ],
-  ));
-}
+void main() => runApp(MyApp());
 
-class HomeBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => HomeController());
-  }
-}
-
-class HomeController extends GetxController {
-  static HomeController get to => Get.find();
-
-  var currentIndex = 0.obs;
-
-  final pages = <String>['/browse', '/history', '/settings'];
-
-  void changePage(int index) {
-    currentIndex.value = index;
-    Get.toNamed(pages[index], id: 1);
-  }
-
-  Route? onGenerateRoute(RouteSettings settings) {
-    if (settings.name == '/browse') {
-      return GetPageRoute(
-        settings: settings,
-        page: () => BrowsePage(),
-        binding: BrowseBinding(),
-      );
-    }
-
-    if (settings.name == '/history') {
-      return GetPageRoute(
-        settings: settings,
-        page: () => HistoryPage(),
-        binding: HistoryBinding(),
-      );
-    }
-
-    if (settings.name == '/settings') {
-      return GetPageRoute(
-        settings: settings,
-        page: () => SettingsPage(),
-        binding: SettingsBinding(),
-      );
-    }
-
-    return null;
-  }
-}
-
-class HomePage extends GetView<HomeController> {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Navigator(
-        key: Get.nestedKey(1),
-        initialRoute: '/browse',
-        onGenerateRoute: controller.onGenerateRoute,
-      ),
-      bottomNavigationBar: Obx(
-            () => BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Browse',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.history),
-              label: 'History',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
-            ),
-          ],
-          currentIndex: controller.currentIndex.value,
-          selectedItemColor: Colors.pink,
-          onTap: controller.changePage,
+    return MaterialApp(
+      title: 'Material App',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Material App Bar'),
+        ),
+        body: Center(
+          child: Container(
+            child: Text('Hello World'),
+          ),
         ),
       ),
     );
   }
 }
 
-class BrowsePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+class _HomePageState extends State<HomePage> {
+  int _currentIndex = 1;
+  List<Widget> _pages = <Widget>[];
+  @override
+  void initState() {
+    _pages.add(CategoryScreen());
+    _pages.add(HomeScreen());
+    _pages.add(SettingScreen());
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Browse')),
-      body: Center(
+      appBar: AppBar(title: Text('BottomNavigationBar')),
+      body: _pages[_currentIndex],
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 8.0,
+        clipBehavior: Clip.antiAlias,
         child: Container(
-          child: Text(Get.find<BrowseController>().title.value),
-        ),
-      ),
-    );
-  }
-}
-
-class HistoryPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('History')),
-      body: Center(
-        child: Container(
-          child: Text(Get.find<HistoryController>().title.value),
-        ),
-      ),
-    );
-  }
-}
-
-class SettingsPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Settings')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              child: Text(Get.find<SettingsController>().title.value),
+          height: kBottomNavigationBarHeight,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border(
+                top: BorderSide(
+                  color: Colors.grey,
+                  width: 0.5,
+                ),
+              ),
             ),
-            ElevatedButton(
-              child: Text('Another Page'),
-              onPressed: () => Get.toNamed('/another'),
-            ),
-          ],
+            child: BottomNavigationBar(
+                currentIndex: _currentIndex,
+                backgroundColor: Colors.blue,
+                selectedItemColor: Colors.white,
+                onTap: (index) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
+                items: [
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.category), label: 'Category'),
+                  BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.settings_outlined), label: 'Setting')
+                ]),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation:
+      FloatingActionButtonLocation.miniCenterDocked,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: FloatingActionButton(
+          backgroundColor: _currentIndex == 1 ? Colors.blue : Colors.blueGrey,
+          child: Icon(Icons.home),
+          onPressed: () => setState(() {
+            _currentIndex = 1;
+          }),
         ),
       ),
     );
   }
 }
-
-class BrowseController extends GetxController {
-  final title = 'Browser'.obs;
-}
-
-class HistoryController extends GetxController {
-  final title = 'History'.obs;
-}
-
-class SettingsController extends GetxController {
-  final title = 'Settings'.obs;
-}
-
-class BrowseBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => BrowseController());
-  }
-}
-
-class HistoryBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => HistoryController());
-  }
-}
-
-class SettingsBinding extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => SettingsController());
-  }
-}
-
-class AnotherPage extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text('Another Page')), body: Container());
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      child: Center(child: Text('Home')),
+    );
+  }
+}
+class CategoryScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      child: Center(child: Text('Category')),
+    );
+  }
+}
+class SettingScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      child: Center(child: Text('Settings')),
+    );
   }
 }

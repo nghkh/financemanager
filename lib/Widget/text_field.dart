@@ -14,6 +14,7 @@ class AppTextField extends StatelessWidget {
   final int maxLines;
   final bool obscureText;
   final TextAlign textAlign;
+  final TextInputAction? textInputAction;
 
   const AppTextField({
     Key? key,
@@ -28,7 +29,9 @@ class AppTextField extends StatelessWidget {
     this.maxLines = 1,
     this.obscureText = false,
     this.textAlign = TextAlign.left,
-    this.hintText, this.prefixIcon,
+    this.hintText,
+    this.prefixIcon,
+    this.textInputAction,
   }) : super(key: key);
 
   @override
@@ -43,7 +46,7 @@ class AppTextField extends StatelessWidget {
           minLines: minLines,
           maxLines: minLines > maxLines ? minLines : maxLines,
           textAlign: textAlign,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w400,
             color: Colors.black,
@@ -58,7 +61,9 @@ class AppTextField extends StatelessWidget {
             suffixIcon: suffixIcon,
           ),
         ),
-        SizedBox(height: 16,),
+        const SizedBox(
+          height: 16,
+        ),
       ],
     );
   }

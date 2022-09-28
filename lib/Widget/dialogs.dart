@@ -1,6 +1,6 @@
-import 'package:baitap/Widget/button.dart';
+
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 
 class AppDialog extends StatelessWidget {
   final Widget? icon;
@@ -22,30 +22,28 @@ class AppDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30.0),
       ),
-      child: Container(
-        child: Column(
-          children: [
-            Container(
-              child: icon,
+      child: Column(
+        children: [
+          Container(
+            child: icon,
+          ),
+          Text(
+            headingText,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
-            Text(
-              headingText,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
+          ),
+          Text(
+            contentText,
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.black,
             ),
-            Text(
-              contentText,
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.black,
-              ),
-            ),
-            action,
-          ],
-        ),
+          ),
+          action,
+        ],
       ),
     );
   }

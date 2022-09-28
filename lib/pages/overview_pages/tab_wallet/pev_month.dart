@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class PreviousMonth extends StatelessWidget {
   const PreviousMonth({Key? key}) : super(key: key);
@@ -7,8 +6,39 @@ class PreviousMonth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Previous Month'),
+      backgroundColor: Colors.grey,
+      body: Container(
+        padding: EdgeInsets.all(8.0),
+        color: Colors.white,
+        child: Column(
+          children: [
+            SizedBox(
+              height: 24,
+            ),
+            Row(
+              children: [
+                Text('Số dư'),
+                Expanded(child: SizedBox()),
+                Text('10000000'),
+              ],
+            ),
+            Row(
+              children: [
+                Text('Tiền ra'),
+                Expanded(child: SizedBox()),
+                Text('500000'),
+              ],
+            ),
+            Divider(),
+            Row(
+              children: [
+                Expanded(child: SizedBox()),
+                Text('9500000'),
+              ],
+            ),
+            Container(color: Colors.grey[400], height: 16,),
+          ],
+        ),
       ),
     );
   }

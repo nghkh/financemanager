@@ -1,19 +1,12 @@
 
+import 'package:baitap/pages/login_signup/controller/controller_login.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-class CheckPasswords extends GetxController {
-}
 
-class CheckEmail extends GetxController {
-  // TextEditingController controller;
-  var email = "tony@starkindustries.com".obs;
-  void checkEmailvalid(RxString email){
-    bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email.value);
-  }
-}
 
 class ShowPasswords extends GetxController{
+
   RxBool obscureText = true.obs;
   void changeState() {
     obscureText.value = !obscureText.value;
@@ -24,9 +17,8 @@ class ShowPasswords extends GetxController{
 class SignUpBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => CheckPasswords());
-    Get.lazyPut(() => CheckEmail());
     Get.lazyPut(() => ShowPasswords());
+    Get.lazyPut<EmailPassController>(() => EmailPassController());
     // TODO: implement dependencies
   }
 

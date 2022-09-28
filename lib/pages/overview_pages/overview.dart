@@ -12,32 +12,65 @@ class Overview extends StatelessWidget {
     return Scaffold(
       body: Navigator(
         key: Get.nestedKey(1),
-        initialRoute: '/overview',
+        initialRoute: '/overview_home',
         onGenerateRoute: controller.onGenerateRoute,
       ),
-      bottomNavigationBar: Obx(
-        () => BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled),
-              label: 'Tổng quan',
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 5,
+        clipBehavior: Clip.antiAlias,
+        child: SizedBox(
+          height: kBottomNavigationBarHeight,
+          child: Container(
+            decoration: const BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  color: Colors.grey,
+                  width: 0.5,
+                ),
+              ),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.wallet),
-              label: 'Chi tiêu',
+            child: Obx(
+              () => BottomNavigationBar(
+                items: const <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.home_filled,
+                    ),
+                    label: 'Tổng quan',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.wallet,
+                    ),
+                    label: 'Chi tiêu',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.task,
+                    ),
+                    label: 'Kế hoạch',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.manage_accounts,
+                    ),
+                    label: 'Tài khoản',
+                  ),
+                ],
+                currentIndex: controller.currentIndex.value,
+                unselectedItemColor: Colors.grey,
+                selectedItemColor: Colors.green,
+                onTap: controller.changePage,
+              ),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.task),
-              label: 'Kế hoạch',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.manage_accounts),
-              label: 'Tài khoản',
-            ),
-          ],
-          currentIndex: controller.currentIndex.value,
-          selectedItemColor: Colors.grey,
-          onTap: controller.changePage,
+          ),
         ),
       ),
     );

@@ -26,15 +26,20 @@ class OverViewSum extends StatelessWidget {
   }
 
   Widget buildHeader() {
-    return Row(
+    return Column(
       children: [
-        Text(
-          'Lập kế hoạch',
-          style: AppTextStyle.textStyle1,
+        Row(
+          children: const [
+            Text(
+              'Lập kế hoạch',
+              style: AppTextStyle.textStyle4Black,
+            ),
+            Expanded(
+              child: SizedBox(),
+            ),
+          ],
         ),
-        Expanded(
-          child: SizedBox(),
-        ),
+        const SizedBox(height: 16,),
       ],
     );
   }
@@ -46,6 +51,7 @@ class OverViewSum extends StatelessWidget {
           return Row(
             children: [
               controller.dataListViews[index].icon,
+              const SizedBox(width: 8,),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,8 +68,8 @@ class OverViewSum extends StatelessWidget {
                 ),
               ),
               IconButton(
-                icon: Icon(
-                  Icons.forward,
+                icon: const Icon(
+                  Icons.arrow_forward_ios,
                   size: 14,
                 ),
                 onPressed: controller.dataListViews[index].onTap,
@@ -71,8 +77,8 @@ class OverViewSum extends StatelessWidget {
             ],
           );
         },
-        separatorBuilder: (context, index) => SizedBox(
-              height: 16,
+        separatorBuilder: (context, index) => const SizedBox(
+              height: 24,
             ),
         itemCount: controller.dataListViews.length);
   }

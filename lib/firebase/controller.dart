@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 // import 'package:baitap/generated_plugin_registrant.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:get/get.dart';
+=======
+import 'package:baitap/firebase/controller/firebase_constant.dart';
+import 'package:baitap/pages/login_signup/login_page.dart';
+import 'package:baitap/pages/login_signup/sign_up_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
+>>>>>>> e2156da47d37078ead64aa66b83bb43b69ba307c
 
 // class AuthController extends GetxController {
 //   static AuthController authInstance = Get.find();
@@ -12,6 +20,7 @@
 //     firebaseUser = Rx<User?>(auth.currentUser);
 //     firebaseUser.bindStream(auth.userChanges());
 
+<<<<<<< HEAD
 //     ever(firebaseUser, _setInitialScreen);
 //   }
 
@@ -66,3 +75,30 @@
 //     }
 //   }
 // }
+=======
+    // ever(firebaseUser, _setInitialScreen);
+  }
+
+  // _setInitialScreen(User? user) {
+  //   if (user != null) {
+  //     // user is logged in
+  //     Get.offAll(() => const SignUpPage());
+  //   } else {
+  //     // user is null as in user is not available or not logged in
+  //     Get.to(() => LoginPage());
+  //   }
+  // }
+
+
+
+
+
+  void signOut() {
+    try {
+      auth.signOut();
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+}
+>>>>>>> e2156da47d37078ead64aa66b83bb43b69ba307c

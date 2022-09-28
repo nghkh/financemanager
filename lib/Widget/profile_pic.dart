@@ -11,7 +11,7 @@ class ProfilePic extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          CircleAvatar(
+          const CircleAvatar(
             backgroundImage: AssetImage('assets/login_logo.png'),
           ),
           Positioned(
@@ -23,14 +23,14 @@ class ProfilePic extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.zero,
+                  backgroundColor: const Color(0xFFF5F6F9),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
-                    side: BorderSide(color: Colors.white),
+                    side: const BorderSide(color: Colors.white),
                   ),
-                  primary: Color(0xFFF5F6F9),
                 ),
                 onPressed: () {},
-                child: Icon(Icons.camera_alt),
+                child: const Icon(Icons.camera_alt),
               ),
             ),
           ),
@@ -41,7 +41,7 @@ class ProfilePic extends StatelessWidget {
 }
 
 void main(List<String> args) {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: Scaffold(
       body: ProfilePic(),
     ),

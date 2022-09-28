@@ -1,29 +1,29 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 List<DropdownMenuItem<String>> get dropdownItems {
   List<DropdownMenuItem<String>> menuItems = [
-    DropdownMenuItem(child: Text("USA"), value: "USA"),
-    DropdownMenuItem(child: Text("Canada"), value: "Canada"),
-    DropdownMenuItem(child: Text("Brazil"), value: "Brazil"),
-    DropdownMenuItem(child: Text("England"), value: "England"),
+    const DropdownMenuItem(value: "USA", child: Text("USA")),
+    const DropdownMenuItem(value: "Canada", child: Text("Canada")),
+    const DropdownMenuItem(value: "Brazil", child: Text("Brazil")),
+    const DropdownMenuItem(value: "England", child: Text("England")),
   ];
   return menuItems;
 }
 
 List<DropdownMenuItem<String>> get dropdownGender {
   List<DropdownMenuItem<String>> menuItems = [
-    DropdownMenuItem(child: Text("male"), value: "male"),
-    DropdownMenuItem(child: Text("female"), value: "female"),
+    const DropdownMenuItem(value: "male", child: Text("male")),
+    const DropdownMenuItem(value: "female", child: Text("female")),
   ];
   return menuItems;
 }
 
 List<DropdownMenuItem<String>> get dropdownMarial {
   List<DropdownMenuItem<String>> menuItems = [
-    DropdownMenuItem(
-      child: Text("???"),
+    const DropdownMenuItem(
       value: "???",
+      child: Text("???"),
     )
   ];
   return menuItems;
@@ -34,32 +34,35 @@ void main() {
     title: "Dropdown Button",
     home: Scaffold(
       appBar: AppBar(
-        title: Text("Dropdown Button"),
+        title: const Text("Dropdown Button"),
       ),
       body: Center(
-        child: getDropDown(items: dropdownGender, hint: "Select gender"),
+        child: GetDropDown(items: dropdownGender, hint: "Select gender"),
       ),
     ),
   ));
 }
 
-class getDropDown extends StatefulWidget {
-  @override
+class GetDropDown extends StatefulWidget {
   final List<DropdownMenuItem<String>>? items;
   final String? hint;
 
-  final Function(String?)? onChanged;
-  const getDropDown({
+  final Function(String)? onChanged;
+
+  const GetDropDown({
     Key? key,
     this.items,
     this.hint,
     this.onChanged,
   }) : super(key: key);
-  _getDropDownState createState() => _getDropDownState();
+
+  @override
+  _GetDropDownState createState() => _GetDropDownState();
 }
 
-class _getDropDownState extends State<getDropDown> {
+class _GetDropDownState extends State<GetDropDown> {
   String? _selectedValue;
+
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
@@ -76,7 +79,10 @@ class _getDropDownState extends State<getDropDown> {
       underline: Container(
         height: 0,
       ),
-      hint: Text("${widget.hint}"),
+      hint: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("${widget.hint}"),
+      ),
     );
   }
 }

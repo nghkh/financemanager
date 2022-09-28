@@ -1,23 +1,18 @@
-import 'package:baitap/Widget/datePicker.dart';
-import 'package:baitap/Widget/genderDropDown.dart';
-import 'package:baitap/Widget/profilePic.dart';
+import 'package:baitap/Widget/date_picker.dart';
+import 'package:baitap/Widget/gender_drop_down.dart';
+import 'package:baitap/Widget/profile_pic.dart';
 import 'package:baitap/Widget/text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
-void main(List<String> args) {
-  runApp(Profile_info());
-}
 
-class Profile_info extends StatefulWidget {
-  const Profile_info({super.key});
+class ProfileInfo extends StatefulWidget {
+  const ProfileInfo({super.key});
 
   @override
-  State<Profile_info> createState() => _Profile_infoState();
+  State<ProfileInfo> createState() => ProfileInfoState();
 }
 
-class _Profile_infoState extends State<Profile_info> {
+class ProfileInfoState extends State<ProfileInfo> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -56,7 +51,7 @@ class _Profile_infoState extends State<Profile_info> {
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: getDropDown(
+                    child: GetDropDown(
                       items: dropdownGender,
                       hint: "giới tính",
                     ),
@@ -67,7 +62,7 @@ class _Profile_infoState extends State<Profile_info> {
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: getDropDown(
+                    child: GetDropDown(
                       items: dropdownMarial,
                       hint: "tình trạng hôn nhân",
                     ),
@@ -78,7 +73,7 @@ class _Profile_infoState extends State<Profile_info> {
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: DatePickerDemo()),
+                      child: DatePickerApp()),
                   SizedBox(height: 20),
                   const AppTextField(
                     hintText: 'Nhập tên ngân hàng',
