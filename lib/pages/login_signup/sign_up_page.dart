@@ -1,6 +1,7 @@
 import 'package:baitap/Widget/button.dart';
 import 'package:baitap/Widget/text_field.dart';
 import 'package:baitap/constant/text_style.dart';
+import 'package:baitap/pages/login_signup/controller/controller_login.dart';
 import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -37,15 +38,17 @@ class SignUpPage extends StatelessWidget {
                   style: AppTextStyle.textStyle2,
                 ),
                 const SizedBox(height: 32),
-                const AppTextField(
+                AppTextField(
                   hintText: 'Nhập địa chỉ E-mail',
                   labelText: 'Địa chỉ E-mail',
+                  controller: Get.find<EmailPassController>().emailController,
                 ),
                 Obx(
                   () => AppTextField(
                     obscureText: showPasswords.obscureText.value,
                     hintText: 'Nhập mật khẩu',
                     labelText: 'Mật khẩu',
+                    controller: Get.find<EmailPassController>().passwordController,
                     suffixIcon: IconButton(
                       icon: Icon(showPasswords.obscureText.value
                           ? Icons.visibility
@@ -56,14 +59,14 @@ class SignUpPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 24-16),
                 AppButton(
-                  onPressed: () => Container(),
+                  onPressed: () => Get.find<EmailPassController>().register(),
                   text: 'Đăng ký',
                 ),
                 const SizedBox(height: 24),
                 RichText(
                   text: TextSpan(
                     children: [
-                      TextSpan(
+                      const TextSpan(
                         text: 'Đã có tài khoản? ',
                         style: AppTextStyle.textStyle2,
                       ),
