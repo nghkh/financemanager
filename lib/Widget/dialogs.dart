@@ -19,31 +19,40 @@ class AppDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      alignment: Alignment.center,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30.0),
       ),
-      child: Column(
-        children: [
-          Container(
-            child: icon,
+      child: Center(
+        child: Container(
+          width: 300,
+          height: 300,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                child: icon,
+              ),
+              Text(
+                headingText,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              Text(
+                contentText,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.black,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              action,
+            ],
           ),
-          Text(
-            headingText,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-          ),
-          Text(
-            contentText,
-            style: const TextStyle(
-              fontSize: 14,
-              color: Colors.black,
-            ),
-          ),
-          action,
-        ],
+        ),
       ),
     );
   }

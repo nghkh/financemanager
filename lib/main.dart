@@ -7,6 +7,7 @@ import 'package:baitap/pages/overview_pages/controller/tab_controller.dart';
 import 'package:baitap/pages/overview_pages/overview.dart';
 import 'package:baitap/pages/profile_basic_info.dart';
 import 'package:baitap/pages/profile_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:baitap/pages/login_signup/sign_up_page.dart';
@@ -22,6 +23,13 @@ void main() async {
   await firebaseInitialization.then((value) => {
         Get.put(AuthController()),
       });
+
+  await FirebaseFirestore.instance.collection('users').get().then(
+      (snapshot) => snapshot.docs.forEach(
+          (doc) => print('kết quả là ${doc.data()}'),
+      ),
+  );
+
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,

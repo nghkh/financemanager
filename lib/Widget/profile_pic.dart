@@ -40,10 +40,3 @@ class ProfilePic extends StatelessWidget {
   }
 }
 
-void main(List<String> args) {
-  runApp(const MaterialApp(
-    home: Scaffold(
-      body: ProfilePic(),
-    ),
-  ));
-}
