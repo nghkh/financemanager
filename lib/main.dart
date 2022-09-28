@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 import 'package:baitap/pages/login_signup/sign_up_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase/controller/firebase_constant.dart';
+
 int? initScreen;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

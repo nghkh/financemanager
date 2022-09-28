@@ -42,14 +42,10 @@ dependencies:
   onboarding: ^3.1.0
   google_sign_in: ^5.4.1
   cloud_firestore: ^3.4.8
-<<<<<<< HEAD
-  firebase_database: ^9.1.5
-=======
   image_picker: ^0.8.5+3
   firebase_storage: ^10.3.9
   firebase_database: ^9.1.5
   shared_preferences: ^2.0.15
->>>>>>> e2156da47d37078ead64aa66b83bb43b69ba307c
 dev_dependencies:
   flutter_test:
     sdk: flutter
