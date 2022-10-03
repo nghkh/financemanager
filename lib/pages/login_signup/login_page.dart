@@ -1,7 +1,7 @@
 import 'package:baitap/Widget/button.dart';
 import 'package:baitap/Widget/text_field.dart';
 import 'package:baitap/constant/text_style.dart';
-import 'package:baitap/firebase/controller.dart';
+import 'package:baitap/firebase/controller/controller.dart';
 import 'package:baitap/pages/login_signup/controller/controller_login.dart';
 import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +13,6 @@ class LoginPage extends StatelessWidget {
   // ShowPasswords get showPasswords => Get.find<ShowPasswords>();
 
   // EmailPassController get emailPassController => Get.find<EmailPassController>();
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -47,21 +45,21 @@ class LoginPage extends StatelessWidget {
                   // },
                 ),
                 Obx(
-                      () =>
-                      AppTextField(
-                        obscureText: Get.find<ShowPasswords>().obscureText.value,
-                        hintText: 'Nhập mật khẩu',
-                        labelText: 'Mật khẩu',
-                        controller: Get.find<EmailPassController>().passwordController,
-                        // onSubmitted: (password){EmailPassController().passwordController.text;},
-                        textInputAction: TextInputAction.done,
-                        suffixIcon: IconButton(
-                          icon: Icon(Get.find<ShowPasswords>().obscureText.value
-                              ? Icons.visibility
-                              : Icons.visibility_off),
-                          onPressed: () => Get.find<ShowPasswords>().changeState(),
-                        ),
-                      ),
+                  () => AppTextField(
+                    obscureText: Get.find<ShowPasswords>().obscureText.value,
+                    hintText: 'Nhập mật khẩu',
+                    labelText: 'Mật khẩu',
+                    controller:
+                        Get.find<EmailPassController>().passwordController,
+                    // onSubmitted: (password){EmailPassController().passwordController.text;},
+                    textInputAction: TextInputAction.done,
+                    suffixIcon: IconButton(
+                      icon: Icon(Get.find<ShowPasswords>().obscureText.value
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                      onPressed: () => Get.find<ShowPasswords>().changeState(),
+                    ),
+                  ),
                 ),
                 Row(
                   children: const [

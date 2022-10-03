@@ -1,19 +1,12 @@
 class ChiTieuThang {
   ChiTieuThang({
-    required this.data,
     required this.id,
-  });
-
-  Data data;
-  int id;
-}
-
-class Data {
-  Data({
+    required this.iduser,
     required this.thang,
-    required this.chiphi,
+    required this.tongchiphi,
   });
-
-  int thang;
-  String chiphi;
+  final String id;
+  final String iduser;
+  final String thang;
+  final String tongchiphi;
 }
