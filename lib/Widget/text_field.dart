@@ -68,3 +68,37 @@ class AppTextField extends StatelessWidget {
     );
   }
 }
+
+class AppTextFormField extends StatelessWidget {
+  final String? initialValue;
+  final TextInputType keyboardType;
+  final TextEditingController? controller;
+  final bool autoFocus;
+  final int minLines;
+  final int maxLines;
+
+  const AppTextFormField({
+    Key? key,
+    this.initialValue,
+    this.keyboardType = TextInputType.text,
+    this.controller,
+    this.autoFocus  = false,
+    this.minLines = 1,
+    this.maxLines = 1,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: const InputDecoration(
+        border: UnderlineInputBorder(),
+      ),
+      initialValue: initialValue,
+      keyboardType: keyboardType,
+      controller: controller,
+      minLines: minLines,
+      maxLines: minLines > maxLines ? minLines : maxLines,
+
+    );
+  }
+}

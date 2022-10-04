@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 List<DropdownMenuItem<String>> get dropdownItems {
@@ -46,8 +45,7 @@ void main() {
 class GetDropDown extends StatefulWidget {
   final List<DropdownMenuItem<String>>? items;
   final String? hint;
-
-  final Function(String)? onChanged;
+  final Function(String?)? onChanged;
 
   const GetDropDown({
     Key? key,
@@ -61,17 +59,17 @@ class GetDropDown extends StatefulWidget {
 }
 
 class _GetDropDownState extends State<GetDropDown> {
-  String? _selectedValue;
+  String? selectedValue;
 
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
       items: widget.items ?? dropdownItems,
-      value: _selectedValue,
+      value: selectedValue,
       onChanged: (value) {
         widget.onChanged;
         setState(() {
-          _selectedValue = value.toString();
+          selectedValue = value.toString();
         });
       },
       isExpanded: true,
@@ -83,6 +81,28 @@ class _GetDropDownState extends State<GetDropDown> {
         padding: const EdgeInsets.all(8.0),
         child: Text("${widget.hint}"),
       ),
+    );
+  }
+}
+
+class AppDropDown extends StatelessWidget {
+  final List<DropdownMenuItem<String>> items;
+  final String? hint;
+  final Function(String?)? onChanged;
+
+  const AppDropDown({
+    Key? key,
+    required this.items,
+    this.hint,
+    this.onChanged,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton(
+      items: items,
+      onChanged: onChanged,
+      isExpanded: true,
     );
   }
 }
