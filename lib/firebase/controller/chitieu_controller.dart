@@ -10,24 +10,36 @@ class ChiTieuController extends GetxController {
   @override
   void onReady() {
     addChiTieu();
+    setChiTieu(chiTieuModel);
     super.onReady();
   }
 
 
   Future<void> addChiTieu() async {
     try {
-      QuerySnapshot querySnapshot = await firestore.collection('chitieu').get();
+      QuerySnapshot<Map<String, dynamic>> querySnapshot =
+          await firestore.collection('ChiTieu').get();
+
       final chitieuList =
           querySnapshot.docs.map((e) => ChiTieu.fromSnapshot(e)).toList();
-      // final id = chitieuList.length + 1;
-      // await firestore.collection('chitieu').doc(id.toString()).set({
-      //   'id': id.toString(),
-      //   'iduser': chitieu.iduser,
-      //   'idthang': chitieu.idthang,
-      //   'loai': chitieu.loai,
-      //   'chiphi': chitieu.chiphi,
-      // });
+      print('chitieuList: $chitieuList');
       allchiTieu.assignAll(chitieuList);
+      ;
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  late ChiTieu chiTieuModel;
+  Future<void> setChiTieu(chiTieuModel) async {
+    try {
+      await firestore.collection('ChiTieu').doc(chiTieuModel.id).set({
+        'iduser': chiTieuModel.iduser,
+        'idthang': chiTieuModel.idthang,
+        'loai': chiTieuModel.loai,
+        'chiphi': chiTieuModel.chiphi,
+      });
+      print('abcxyz');
     } catch (e) {
       print('lỗi ở $e');
     }

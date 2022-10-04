@@ -9,20 +9,16 @@ class TestBackEnd extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ChiTieuController _chitieuController = Get.find<ChiTieuController>();
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('TestBackEnd'),
+    ChiTieuController _chitieuController = Get.find();
+    return Obx(
+      () => ListView.separated(
+        separatorBuilder: (context, index) => const Divider(),
+        itemCount: _chitieuController.allchiTieu.length,
+        itemBuilder: (context, index) {
+          print(_chitieuController.allchiTieu);
+          return Testcard(chitieumodel: _chitieuController.allchiTieu[index]);
+        },
       ),
-      body: Obx(() {
-        return ListView.separated(
-          separatorBuilder: (context, index) => const Divider(),
-          itemCount: _chitieuController.allchiTieu.length,
-          itemBuilder: (context, index) {
-            return Testcard(chitieumodel: _chitieuController.allchiTieu[index]);
-          },
-        );
-      }),
     );
   }
 }
@@ -30,7 +26,6 @@ class TestBackEnd extends StatelessWidget {
 class Testcard extends StatelessWidget {
   const Testcard({Key? key, required this.chitieumodel}) : super(key: key);
   final ChiTieu chitieumodel;
-
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -43,14 +38,21 @@ class Testcard extends StatelessWidget {
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
-  await firebaseInitialization.then((value) =>
-  {
-    Get.put(ChiTieuController()),
-  });
+  await firebaseInitialization.then((value) => {
+        Get.put(ChiTieuController()),
+      });
   ChiTieuController _chitieuController = Get.find();
+  _chitieuController.setChiTieu(
+      ChiTieu(id: '2', iduser: '1', idthang: '1', loai: '1', chiphi: '30000'));
+  print(_chitieuController.allchiTieu.length);
   runApp(
     GetMaterialApp(
-      home: TestBackEnd(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('TestBackEnd'),
+        ),
+        body: TestBackEnd(),
+      ),
     ),
   );
 }

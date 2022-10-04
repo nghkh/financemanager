@@ -23,7 +23,7 @@ class IntroScreen extends StatelessWidget {
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.3,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CustomIndicator(
                     netDragPercent: dragDistance,
