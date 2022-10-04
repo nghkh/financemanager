@@ -23,10 +23,14 @@ class AddTransactionsPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-
-        ],
+      body: Container(
+        width: double.infinity,
+        color: Colors.white,
+        child: Column(
+          children: [
+              
+          ],
+        ),
       ),
     );
   }
