@@ -30,30 +30,21 @@ class EmailPassController extends GetxController {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         Get.dialog(
-          AppDialog(
-            headingText: 'ĐĂNG NHẬP THẤT BẠI',
-            contentText: 'Không tìm thấy người dùng, vui lòng thử lại',
-            action: AppButton(
-              onPressed: () {
-                Get.back();
-              },
-              text: "ĐÓNG",
-            ),
+          AppAlertDialog(
+            title: 'LỖI',
+            content: 'Không tìm thấy người dùng, vui lòng thử lại',
+            textButton: 'ĐÓNG',
+            onPressed: () => Get.back(),
           ),
         );
         print('No user found for that email.');
       } else if (e.code == 'wrong-password') {
         Get.dialog(
-          AppDialog(
-            headingText: 'ĐĂNG NHẬP THẤT BẠI',
-            contentText:
-                'Mật khẩu không trùng với thông tin đã đăng ký, vui lòng thử lại',
-            action: AppButton(
-              onPressed: () {
-                Get.back();
-              },
-              text: "ĐÓNG",
-            ),
+          AppAlertDialog(
+            title: 'LỖI',
+            content: 'Mật khẩu không trùng với thông tin đăng ký',
+            textButton: 'ĐÓNG',
+            onPressed: () => Get.back(),
           ),
         );
       }
@@ -70,15 +61,11 @@ class EmailPassController extends GetxController {
       // for example : password did not match
       print(e.message);
       Get.dialog(
-        AppDialog(
-          headingText: 'LỖI',
-          contentText: e.message!,
-          action: AppButton(
-            onPressed: () {
-              Get.back();
-            },
-            text: 'ĐÓNG',
-          ),
+        AppAlertDialog(
+          title: 'LỖI',
+          content: 'Mật khẩu không trùng với thông tin đăng ký',
+          textButton: 'ĐÓNG',
+          onPressed: () => Get.back(),
         ),
       );
       Get.snackbar(

@@ -1,6 +1,5 @@
-
+import 'package:baitap/Widget/button.dart';
 import 'package:flutter/material.dart';
-
 
 class AppDialog extends StatelessWidget {
   final Widget? icon;
@@ -54,6 +53,52 @@ class AppDialog extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class AppAlertDialog extends StatelessWidget {
+  final String title;
+  final String content;
+  final String textButton;
+  final Function() onPressed;
+
+  const AppAlertDialog({
+    Key? key,
+    required this.title,
+    required this.content,
+    required this.textButton,
+    required this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0),
+    ),
+      icon: Icon(
+        Icons.error,
+        size: 40.0,
+        color: Colors.red,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ),
+      ),
+      content: Text(
+        content,
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ),
+      ),
+      actions: [AppButton(onPressed: onPressed, text: textButton)],
     );
   }
 }
