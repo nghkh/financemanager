@@ -34,7 +34,7 @@ class ChiTieuThangController extends GetxController {
         'iduser': chiTieuThangModel.iduser,
         'thang': chiTieuThangModel.thang,
         'loai': chiTieuThangModel.loai,
-        'chiphi': chiTieuThangModel.tongchiphi,
+        'tongchiphi': chiTieuThangModel.tongchiphi,
       });
       print('abcxyz');
     } catch (e) {
