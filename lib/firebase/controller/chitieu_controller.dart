@@ -13,6 +13,7 @@ class ChiTieuController extends GetxController {
     super.onReady();
   }
 
+
   Future<void> addChiTieu() async {
     try {
       QuerySnapshot querySnapshot = await firestore.collection('chitieu').get();
@@ -28,7 +29,7 @@ class ChiTieuController extends GetxController {
       // });
       allchiTieu.assignAll(chitieuList);
     } catch (e) {
-      print(e);
+      print('lỗi ở $e');
     }
   }
 }
