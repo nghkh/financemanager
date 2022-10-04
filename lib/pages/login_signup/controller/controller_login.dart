@@ -1,6 +1,6 @@
 import 'package:baitap/Widget/button.dart';
 import 'package:baitap/Widget/dialogs.dart';
-import 'package:baitap/firebase/controller.dart';
+import 'package:baitap/firebase/controller/controller.dart';
 import 'package:baitap/firebase/controller/firebase_constant.dart';
 import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';

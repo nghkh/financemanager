@@ -1,9 +1,9 @@
-class User {
-  User({
-    required this.id,
-    required this.email,
-  });
+// class User {
+//   User({
+//     required this.id,
+//     required this.email,
+//   });
 
-  int id;
-  String email;
-}
+//   int id;
+//   String email;
+// }

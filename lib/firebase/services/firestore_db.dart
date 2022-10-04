@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:baitap/firebase/controller.dart';
+import 'package:baitap/firebase/controller/controller.dart';
 import 'package:baitap/pages/login_signup/controller/controller_login.dart';
 import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
 import 'package:baitap/pages/intro/intro_screen.dart';
@@ -10,6 +10,7 @@ import 'package:baitap/pages/overview_pages/overview.dart';
 import 'package:baitap/pages/profile_basic_info.dart';
 import 'package:baitap/pages/profile_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:baitap/pages/login_signup/sign_up_page.dart';
@@ -31,11 +32,3 @@ Future<void> main(List<String> args) async {
         ),
       );
 }
-// Future<void> main(List<String> args) async {
-//   await FirebaseFirestore.instance
-//       .collection('users')
-//       .get()
-//       .then((snapshot) => snapshot.docs.forEach((element) {
-//             print(element.reference);
-//           }));
-// }
