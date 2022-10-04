@@ -10,14 +10,12 @@ class TestBackEnd extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ChiTieuController _chitieuController = Get.find();
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('TestBackEnd'),
-      ),
-      body: ListView.separated(
+    return Obx(
+      () => ListView.separated(
         separatorBuilder: (context, index) => const Divider(),
         itemCount: _chitieuController.allchiTieu.length,
         itemBuilder: (context, index) {
+          print(_chitieuController.allchiTieu);
           return Testcard(chitieumodel: _chitieuController.allchiTieu[index]);
         },
       ),
@@ -31,7 +29,7 @@ class Testcard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text('{$chitieumodel.id} 1'),
+      title: Text(chitieumodel.id),
       subtitle: Text(chitieumodel.iduser),
       trailing: Text(chitieumodel.chiphi),
     );
@@ -44,9 +42,17 @@ Future<void> main(List<String> args) async {
         Get.put(ChiTieuController()),
       });
   ChiTieuController _chitieuController = Get.find();
+  _chitieuController.setChiTieu(
+      ChiTieu(id: '2', iduser: '1', idthang: '1', loai: '1', chiphi: '30000'));
+  print(_chitieuController.allchiTieu.length);
   runApp(
     GetMaterialApp(
-      home: TestBackEnd(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('TestBackEnd'),
+        ),
+        body: TestBackEnd(),
+      ),
     ),
   );
 }
