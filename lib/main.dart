@@ -31,6 +31,7 @@ void main() async {
       theme: ThemeData(
         primaryColor: Colors.green,
         iconTheme: const IconThemeData(color: Colors.green, opacity: 1),
+        scaffoldBackgroundColor: Color.fromARGB(255, 222, 222, 222),
       ),
       initialRoute: initScreen == 0 || initScreen == null ? '/intro' : '/',
       getPages: AppRoutes.routes(),
