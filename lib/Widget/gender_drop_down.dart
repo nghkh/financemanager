@@ -89,17 +89,18 @@ class AppDropDown extends StatelessWidget {
   final List<DropdownMenuItem<String>> items;
   final String? hint;
   final Function(String?)? onChanged;
-
+  final String value;
   const AppDropDown({
     Key? key,
     required this.items,
     this.hint,
-    this.onChanged,
+    this.onChanged, required this.value,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
+      value: value,
       items: items,
       onChanged: onChanged,
       isExpanded: true,

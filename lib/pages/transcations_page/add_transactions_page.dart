@@ -35,31 +35,36 @@ class AddTransactionsPage extends StatelessWidget {
         color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              AppTextFormField(
-                controller: controller.textController,
-                initialValue: '1',
-              ),
-              AppDropDown(
-                items: controller.listKindsofTrans
-                    .map((element) => DropdownMenuItem(
-                          value: element.value,
-                          child: Row(
-                            children: [
-                              element.image,
-                              Text(
-                                element.text,
-                                style: AppTextStyle.textStyle3,
-                              ),
-                            ],
-                          ),
-                        ))
-                    .toList(),
-                onChanged: (value) => controller.onChanged(value),
-              ),
-            ],
-          ),
+          child: Obx(() {
+            return Column(
+              children: [
+                AppTextFormField(
+                  controller: controller.textController,
+                  keyboardType: TextInputType.number,
+                ),
+                SizedBox(height: 16,),
+                AppDropDown(
+                  value: controller.selectedValue.value,
+                  items: controller.listKindsofTrans
+                      .map((element) =>
+                      DropdownMenuItem(
+                        value: element.value,
+                        child: Row(
+                          children: [
+                            element.image,
+                            Text(
+                              element.text,
+                              style: AppTextStyle.textStyle3,
+                            ),
+                          ],
+                        ),
+                      ))
+                      .toList(),
+                  onChanged: (value) => controller.onChanged(value),
+                ),
+              ],
+            );
+          }),
         ),
       ),
     );

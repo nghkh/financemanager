@@ -1,3 +1,4 @@
+import 'package:baitap/pages/transcations_page/add_transactions_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:baitap/pages/overview_pages/controller/tab_controller.dart';
@@ -16,7 +17,7 @@ class Overview extends StatelessWidget {
         onGenerateRoute: controller.onGenerateRoute,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => Get.to(AddTransactionsPage()),
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation:
