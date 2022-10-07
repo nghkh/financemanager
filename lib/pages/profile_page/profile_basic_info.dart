@@ -4,7 +4,6 @@ import 'package:baitap/Widget/profile_pic.dart';
 import 'package:baitap/Widget/text_field.dart';
 import 'package:flutter/material.dart';
 
-
 class ProfileInfo extends StatefulWidget {
   const ProfileInfo({super.key});
 
@@ -39,12 +38,8 @@ class ProfileInfoState extends State<ProfileInfo> {
                     labelText: 'Họ',
                   ),
                   const AppTextField(
-                    hintText: 'Nhập tên đệm',
-                    labelText: 'Tên đệm',
-                  ),
-                  const AppTextField(
-                    hintText: 'Nhập tên',
-                    labelText: 'Tên',
+                    hintText: 'Nhập tên đệm và tên',
+                    labelText: 'Tên đệm và tên',
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -75,18 +70,6 @@ class ProfileInfoState extends State<ProfileInfo> {
                       ),
                       child: DatePickerApp()),
                   SizedBox(height: 20),
-                  const AppTextField(
-                    hintText: 'Nhập tên ngân hàng',
-                    labelText: 'Tên ngân hàng',
-                  ),
-                  const AppTextField(
-                    hintText: 'Nhập số tài khoản',
-                    labelText: 'Số tài khoản',
-                  ),
-                  const AppTextField(
-                    hintText: 'Nhập số BVN',
-                    labelText: 'Số BVN',
-                  ),
                 ],
               ),
             ),
