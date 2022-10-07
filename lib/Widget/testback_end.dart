@@ -30,7 +30,7 @@ class Testcard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text('{$chitieumodel.id} 1'),
+      title: Text(chitieumodel.id),
       subtitle: Text(chitieumodel.iduser),
       trailing: Text(chitieumodel.chiphi),
     );
@@ -45,7 +45,7 @@ Future<void> main(List<String> args) async {
       });
   ChiTieuController _chitieuController = Get.find();
   addTransactionController _addTransactionController = Get.find();
-  await _addTransactionController.set('30000', '1');
+  _addTransactionController.set('30000', '1');
   // _chitieuController.setChiTieu(ChiTieu(
   //     id: '3',
   //     iduser: '1',
