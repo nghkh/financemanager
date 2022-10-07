@@ -15,6 +15,7 @@ class ChiTieuController extends addTransactionController {
     super.onReady();
   }
 
+
   Future<void> addChiTieu() async {
     try {
       QuerySnapshot<Map<String, dynamic>> querySnapshot =
@@ -41,7 +42,7 @@ class ChiTieuController extends addTransactionController {
       });
       print('abcxyz');
     } catch (e) {
-      print(e);
+      print('lỗi ở $e');
     }
   }
 }
