@@ -1,11 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'chi_tieu.dart';
 
 class ChiTieuThang {
-  ChiTieuThang(
-    this.iduser,
-    this.tongchiphi, {
-    required this.id,
+  ChiTieuThang({
+    required this.tongchiphi,
     required this.thang,
+    required this.id,
+    required this.iduser,
   });
   final String id;
   final String iduser;
@@ -19,10 +20,10 @@ class ChiTieuThang {
         tongchiphi = snapshot['tongchiphi'];
   factory ChiTieuThang.fromJson(Map<String, dynamic> json) {
     return ChiTieuThang(
-      json['iduser'],
-      json['tongchiphi'],
       id: json['id'],
+      iduser: json['iduser'],
       thang: json['thang'],
+      tongchiphi: json['tongchiphi'],
     );
   }
   Map<String, dynamic> toJson() {
