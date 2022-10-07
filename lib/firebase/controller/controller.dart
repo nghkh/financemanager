@@ -66,13 +66,15 @@ class addTransactionController extends GetxController {
       String iduser = auth.currentUser!.uid;
       final id = '${chiTieuController.allchiTieu.length + 1}';
       try {
-        await chiTieuController.setChiTieu(ChiTieu(
-            id: '1',
-            iduser: '2',
-            idthang: chiTieuModel.timetoMonth(),
-            loai: loai.toString(),
-            chiphi: chiphi.toString(),
-            ngaythang: chiTieuModel.timetoDay()));
+        await chiTieuController.setChiTieu(
+          ChiTieu(
+              id: '1',
+              iduser: '2',
+              idthang: chiTieuModel.timetoMonth(),
+              loai: loai.toString(),
+              chiphi: chiphi.toString(),
+              ngaythang: chiTieuModel.timetoDay()),
+        );
       } catch (e) {
         print(e);
       }
