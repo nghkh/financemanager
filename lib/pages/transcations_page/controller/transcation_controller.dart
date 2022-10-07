@@ -1,5 +1,4 @@
 import 'package:baitap/model/kinds_of_transcations.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,6 +6,28 @@ class TranscationsPageController extends GetxController {
   TextEditingController textController = TextEditingController(text: '0');
   var listKindsofTrans = <KindOfTransactions>[].obs;
   var selectedValue = '1'.obs;
+  var selectedDate = DateTime.now().obs;
+
+  @override
+  void onReady() {
+    super.onReady();
+  }
+  chooseDate() async {
+    DateTime? pickedDate = await showDatePicker(
+        context: Get.context!,
+        initialDate: selectedDate.value,
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2024),
+        //initialEntryMode: DatePickerEntryMode.input,
+        // initialDatePickerMode: DatePickerMode.year,
+        helpText: 'Hãy chọn ngày',
+        cancelText: 'Đóng',
+        confirmText: 'Xác nhận',
+        fieldHintText: 'Month/Date/Year',);
+    if (pickedDate != null && pickedDate != selectedDate.value) {
+      selectedDate.value = pickedDate;
+    }
+  }
 
   @override
   void onInit() {

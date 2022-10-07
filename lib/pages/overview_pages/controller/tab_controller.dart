@@ -20,7 +20,7 @@ class TabAppController extends GetxController {
     if (settings.name == '/overview_home') {
       return GetPageRoute(
         settings: settings,
-        page: () => const OverviewHome(),
+        page: () => OverviewHome(),
       );
     } else if (settings.name == '/wallet') {
       return GetPageRoute(

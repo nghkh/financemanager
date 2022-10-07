@@ -19,43 +19,49 @@ class EmailPassController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  void login() async {
-    try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      );
-      Get.offAndToNamed('/overview');
-      // credential.user!.uid;
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        Get.dialog(
-          AppAlertDialog(
-            title: 'LỖI',
-            content: 'Không tìm thấy người dùng, vui lòng thử lại',
-            textButton: 'ĐÓNG',
-            onPressed: () => Get.back(),
-          ),
-        );
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        Get.dialog(
-          AppAlertDialog(
-            title: 'LỖI',
-            content: 'Mật khẩu không trùng với thông tin đăng ký',
-            textButton: 'ĐÓNG',
-            onPressed: () => Get.back(),
-          ),
-        );
-      }
-      // Get.toNamed('/overview');
-    }
+  void login() {
+    // try {
+    //   final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+    //     email: emailController.text,
+    //     password: passwordController.text,
+    //   );
+    //   Get.offAndToNamed('/overview');
+    //   // credential.user!.uid;
+    // } on FirebaseAuthException catch (e) {
+    //   if (e.code == 'user-not-found') {
+    //     Get.dialog(
+    //       AppAlertDialog(
+    //         title: 'LỖI',
+    //         content: 'Không tìm thấy người dùng, vui lòng thử lại',
+    //         textButton: 'ĐÓNG',
+    //         onPressed: () => Get.back(),
+    //       ),
+    //     );
+    //     print('No user found for that email.');
+    //   } else if (e.code == 'wrong-password') {
+    //     Get.dialog(
+    //       AppAlertDialog(
+    //         title: 'LỖI',
+    //         content: 'Mật khẩu không trùng với thông tin đăng ký',
+    //         textButton: 'ĐÓNG',
+    //         onPressed: () => Get.back(),
+    //       ),
+    //     );
+    //   }
+    //   // Get.toNamed('/overview');
+    // }
+    Get.offAndToNamed('/overview');
   }
 
   void register() async {
     try {
       await auth.createUserWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
+          email: emailController.text, password: passwordController.text).then((result) {
+            String _userId = result.user!.uid;
+            firestore.collection('users').doc(_userId).set({
+              'email': emailController.text,
+            });
+          });
     } on FirebaseAuthException catch (e) {
       // this is solely for the Firebase Auth Exception
       // for example : password did not match

@@ -1,3 +1,4 @@
+import 'package:baitap/pages/transcations_page/add_transactions_page.dart';
 import 'package:get/get.dart';
 
 import '../../pages/intro/intro_screen.dart';
@@ -7,8 +8,8 @@ import '../../pages/login_signup/login_page.dart';
 import '../../pages/login_signup/sign_up_page.dart';
 import '../../pages/overview_pages/controller/tab_controller.dart';
 import '../../pages/overview_pages/overview.dart';
-import '../../pages/profile_basic_info.dart';
-import '../../pages/profile_page.dart';
+import '../../pages/profile_page/profile_basic_info.dart';
+import '../../pages/profile_page/profile_page.dart';
 
 class AppRoutes {
   static List<GetPage> routes() => [
@@ -39,5 +40,9 @@ class AppRoutes {
           name: '/profile_page',
           page: (() => const ProfilePage()),
         ),
+        GetPage(
+          name: '/add_transaction',
+          page: (() => const AddTransactionsPage()),
+        )
       ];
 }

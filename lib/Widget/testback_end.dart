@@ -29,7 +29,7 @@ class Testcard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text('{$chitieumodel.id} 1'),
+      title: Text('${chitieumodel.id} 1'),
       subtitle: Text(chitieumodel.iduser),
       trailing: Text(chitieumodel.chiphi),
     );

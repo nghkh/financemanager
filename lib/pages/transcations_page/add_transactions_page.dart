@@ -1,3 +1,4 @@
+import 'package:baitap/Widget/date_picker.dart';
 import 'package:baitap/Widget/gender_drop_down.dart';
 import 'package:baitap/Widget/text_field.dart';
 import 'package:baitap/constant/text_style.dart';
@@ -16,6 +17,7 @@ class AddTransactionsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
+        elevation: 1,
         backgroundColor: Colors.white,
         title: Text(
           'Thêm giao dịch',
@@ -23,7 +25,9 @@ class AddTransactionsPage extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
             child: Text(
               'Lưu',
             ),
@@ -42,25 +46,38 @@ class AddTransactionsPage extends StatelessWidget {
                   controller: controller.textController,
                   keyboardType: TextInputType.number,
                 ),
-                SizedBox(height: 16,),
+                SizedBox(
+                  height: 16,
+                ),
                 AppDropDown(
                   value: controller.selectedValue.value,
                   items: controller.listKindsofTrans
-                      .map((element) =>
-                      DropdownMenuItem(
-                        value: element.value,
-                        child: Row(
-                          children: [
-                            element.image,
-                            Text(
-                              element.text,
-                              style: AppTextStyle.textStyle3,
+                      .map((element) => DropdownMenuItem(
+                            value: element.value,
+                            child: Row(
+                              children: [
+                                element.image,
+                                Text(
+                                  element.text,
+                                  style: AppTextStyle.textStyle3,
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                      ))
+                          ))
                       .toList(),
                   onChanged: (value) => controller.onChanged(value),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Obx(
+                    () => AppDatePicker(
+                      onPressed: (){controller.chooseDate();},
+                      selectedDate: controller.selectedDate.value,
+                    ),
+                  ),
                 ),
               ],
             );
