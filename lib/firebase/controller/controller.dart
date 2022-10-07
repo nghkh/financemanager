@@ -1,13 +1,8 @@
 import 'package:baitap/firebase/controller/chitieu_controller.dart';
-import 'package:baitap/firebase/controller/chitieuthang_controller.dart';
 import 'package:baitap/firebase/controller/firebase_constant.dart';
 import 'package:baitap/model/chi_tieu.dart';
 import 'package:baitap/model/chi_tieu_thang.dart';
-import 'package:baitap/pages/login_signup/login_page.dart';
-import 'package:baitap/pages/login_signup/sign_up_page.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
@@ -58,7 +53,7 @@ class addTransactionController extends GetxController {
   late ChiTieuThang chiTieuThangmodel;
   Future<void> set(chiphi, loai) async {
     try {
-      final FirebaseAuth auth = FirebaseAuth.instance;
+      // final FirebaseAuth auth = FirebaseAuth.instance;
 
       ChiTieuController chiTieuController = ChiTieuController();
       // ChiTieuThangController _chiTieuThangController =

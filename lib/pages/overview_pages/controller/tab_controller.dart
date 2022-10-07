@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 class TabAppController extends GetxController {
   static TabAppController get to => Get.find();
   var currentIndex = 0.obs;
-  final pages = <String>['/overview_home', '/wallet', '/plan', '/account'];
+  final pages = <String>['/overview_home', '/wallet', '/plan', '/account', '/page2'];
 
   void changePage(int index) {
     currentIndex.value = index;

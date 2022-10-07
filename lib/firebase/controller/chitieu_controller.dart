@@ -31,7 +31,7 @@ class ChiTieuController extends addTransactionController {
   }
 
   late ChiTieu chiTieuModel;
-  Future<void> setChiTieu(chiTieuModel) async {
+  Future<void> setChiTieu(ChiTieu chiTieuModel) async {
     try {
       await firestore.collection('ChiTieu').doc(chiTieuModel.id).set({
         'ngaythang': chiTieuModel.ngaythang,
