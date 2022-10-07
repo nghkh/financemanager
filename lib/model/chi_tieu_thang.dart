@@ -1,26 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'chi_tieu.dart';
 
 class ChiTieuThang {
   ChiTieuThang({
+    required this.tongchiphi,
+    required this.thang,
     required this.id,
     required this.iduser,
-    required this.thang,
-    required this.tongchiphi,
   });
   final String id;
   final String iduser;
   final String thang;
   final String tongchiphi;
 
-  factory ChiTieuThang.fromSnapshot(
-      DocumentSnapshot<Map<String, dynamic>> snapshot) {
-    return ChiTieuThang(
-      id: snapshot.id,
-      iduser: snapshot.data()!['iduser'],
-      thang: snapshot.data()!['thang'],
-      tongchiphi: snapshot.data()!['tongchiphi'],
-    );
-  }
+  ChiTieuThang.fromSnapshot(DocumentSnapshot snapshot)
+      : id = snapshot.id,
+        iduser = snapshot['iduser'],
+        thang = snapshot['thang'],
+        tongchiphi = snapshot['tongchiphi'];
   factory ChiTieuThang.fromJson(Map<String, dynamic> json) {
     return ChiTieuThang(
       id: json['id'],

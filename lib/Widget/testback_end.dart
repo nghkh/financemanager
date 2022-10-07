@@ -1,4 +1,5 @@
 import 'package:baitap/firebase/controller/chitieu_controller.dart';
+import 'package:baitap/firebase/controller/controller.dart';
 import 'package:baitap/firebase/controller/firebase_constant.dart';
 import 'package:baitap/model/chi_tieu.dart';
 import 'package:flutter/material.dart';
@@ -40,11 +41,19 @@ Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await firebaseInitialization.then((value) => {
         Get.put(ChiTieuController()),
+        Get.put(addTransactionController()),
       });
   ChiTieuController _chitieuController = Get.find();
-  _chitieuController.setChiTieu(
-      ChiTieu(id: '2', iduser: '1', idthang: '1', loai: '1', chiphi: '30000'));
-  print(_chitieuController.allchiTieu.length);
+  addTransactionController _addTransactionController = Get.find();
+  await _addTransactionController.set('30000', '1');
+  // _chitieuController.setChiTieu(ChiTieu(
+  //     id: '3',
+  //     iduser: '1',
+  //     idthang: '1',
+  //     ngaythang: '1',
+  //     loai: '1',
+  //     chiphi: '1'));
+
   runApp(
     GetMaterialApp(
       home: Scaffold(
