@@ -9,14 +9,14 @@ class User {
   final String id;
   final String email;
 
-  User.fromSnapshot(DocumentSnapshot snapshot)
+  User.fromSnapshot(DocumentSnapshot snapshot, )
       : id = snapshot.id,
         email = snapshot['email'];
   Map<String, dynamic> toJson() => {
         'id': id,
         'email': email,
       };
-  User.fromJson(Map<String, dynamic> json)
+  User.fromJson(Map<String, dynamic> json,)
       : id = json['id'],
         email = json['email'];
 }

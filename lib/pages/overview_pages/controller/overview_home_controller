@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+import 'package:charts_flutter_new/flutter.dart' as charts;
+import 'package:get/get.dart';
+import  'package:baitap/model/chart.dart';
+class OverViewHomeController extends GetxController{
+  var chartData = <ChartApp>[].obs;
+  var series = <charts.Series<ChartApp, String>>[].obs;
+
+  @override
+  void onInit() {
+    chartData.addAll(
+      [ChartApp('Tháng trước', 12000000),
+      ChartApp('Tháng này', 5000000)]
+    );
+    series.add(
+      charts.Series(
+        id: 'Chart',
+        data: chartData.value,
+        domainFn: (ChartApp series, _) => series.timestamps,
+        measureFn: (ChartApp series, _) => series.spendingData,
+        colorFn: (ChartApp series, _) => charts.MaterialPalette.blue.shadeDefault,
+      )
+    );
+    super.onInit();
+  }
+}

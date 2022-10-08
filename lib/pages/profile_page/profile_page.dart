@@ -3,6 +3,8 @@ import 'package:baitap/Widget/profile_pic.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../constant/text_style.dart';
+
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
@@ -33,11 +35,8 @@ class ProfilePage extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'basic infomation',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        'Basic Infomation',
+                        style: AppTextStyle.textStyle5Black,
                       ),
                       Spacer(),
                       IconButton(
@@ -84,10 +83,7 @@ class ProfilePage extends StatelessWidget {
                     children: [
                       Text(
                         'contact infomation',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: AppTextStyle.textStyle5Black,
                       ),
                       Spacer(),
                       IconButton(

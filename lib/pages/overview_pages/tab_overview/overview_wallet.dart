@@ -1,3 +1,4 @@
+
 import 'package:baitap/constant/text_style.dart';
 import 'package:baitap/pages/overview_pages/controller/wallet_controller.dart';
 import 'package:baitap/pages/overview_pages/tab_wallet/pev_month.dart';
@@ -12,41 +13,44 @@ class OverviewWallet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Center(
-          child: Column(
-            children: [
-              Text(
-                'Số dư',
-                style: AppTextStyle.textStyle3Grey,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color.fromARGB(255, 220, 220, 220),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Center(
+            child: Column(
+              children: [
+                Text(
+                  'Số dư',
+                  style: AppTextStyle.textStyle3Grey,
+                ),
+                Text(
+                  '100000 VNĐ',
+                  style: AppTextStyle.textStyle1,
+                ),
+              ],
+            ),
+          ),
+          bottom: TabBar(
+            controller: controller.tabController,
+            tabs: [
+              Tab(
+                text: 'Tháng trước',
               ),
-              Text(
-                '100000 VNĐ',
-                style: AppTextStyle.textStyle1,
+              Tab(
+                text: 'Tháng này',
               ),
             ],
           ),
         ),
-        bottom: TabBar(
+        body: TabBarView(
           controller: controller.tabController,
-          tabs: [
-            Tab(
-              text: 'Tháng trước',
-            ),
-            Tab(
-              text: 'Tháng này',
-            ),
+          children: [
+            PreviousMonth(),
+            ThisMonth(),
           ],
         ),
-      ),
-      body: TabBarView(
-        controller: controller.tabController,
-        children: [
-          PreviousMonth(),
-          ThisMonth(),
-        ],
       ),
     );
   }

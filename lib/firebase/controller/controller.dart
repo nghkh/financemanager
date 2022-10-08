@@ -24,17 +24,7 @@ class AuthController extends GetxController {
     firebaseUser.bindStream(auth.userChanges());
   }
 }
-// ever(firebaseUser, _setInitialScreen);
 
-// _setInitialScreen(User? user) {
-//   if (user != null) {
-//     // user is logged in
-//     Get.offAll(() => const SignUpPage());
-//   } else {
-//     // user is null as in user is not available or not logged in
-//     Get.to(() => LoginPage());
-//   }
-// }
 
 void signOut() {
   try {
@@ -70,8 +60,9 @@ class addTransactionController extends GetxController {
   Future<void> set(String chiphi, String loai) async {
     try {
       final FirebaseAuth auth = FirebaseAuth.instance;
-      ChiTieuController chiTieuController = Get.find();
-      final id = '${chiTieuController.allchiTieu.length + 1}';
+      // ChiTieuController chiTieuController = Get.find<ChiTieuController>();
+      ChiTieuController chiTieuController = Get.put(ChiTieuController());
+      final id = '${chiTieuController.allchiTieu.value.length + 1}';
       print('id: $id');
       print(chiTieuController.allchiTieu.length);
       print(chiTieuController.allchiTieu);

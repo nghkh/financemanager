@@ -6,7 +6,7 @@ class PreviousMonth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Color.fromARGB(255, 220, 220, 220),
       body: Container(
         padding: EdgeInsets.all(8.0),
         color: Colors.white,

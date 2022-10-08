@@ -1,5 +1,6 @@
 import 'package:baitap/constant/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:onboarding/onboarding.dart';
 
 class IntroPage2 extends StatelessWidget {
@@ -15,7 +16,7 @@ class IntroPage2 extends StatelessWidget {
             children: [
               const Spacer(),
               TextButton(
-                onPressed: () {},
+                onPressed: () {Get.to('/signup');},
                 child: const Text('Skip'),
               )
             ],

@@ -17,3 +17,7 @@ final storageRef = FirebaseStorage.instance.ref();
 final userRef = firestore.collection('users');
 final ChiTieuRef = firestore.collection('ChiTieu');
 final ChiTieuThangRef = firestore.collection('ChiTieuThang');
+
+
+
+final user = auth.currentUser;
