@@ -74,6 +74,7 @@ class addTransactionController extends GetxController {
       final id = '${chiTieuController.allchiTieu.length + 1}';
       print('id: $id');
       print(chiTieuController.allchiTieu.length);
+      print(chiTieuController.allchiTieu);
       final User? user = auth.currentUser;
       final String iduser = user?.uid.toString() ?? "";
       try {
