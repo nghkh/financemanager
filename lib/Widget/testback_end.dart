@@ -30,7 +30,7 @@ class Testcard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text('${chitieumodel.id} 1'),
+      title: Text(chitieumodel.id),
       subtitle: Text(chitieumodel.iduser),
       trailing: Text(chitieumodel.chiphi),
     );
@@ -53,7 +53,7 @@ Future<void> main(List<String> args) async {
   //     ngaythang: '1',
   //     loai: '1',
   //     chiphi: '1'));
-
+  print('11');
   runApp(
     GetMaterialApp(
       home: Scaffold(
