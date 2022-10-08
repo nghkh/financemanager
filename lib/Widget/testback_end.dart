@@ -45,7 +45,7 @@ Future<void> main(List<String> args) async {
       });
   ChiTieuController _chitieuController = Get.find();
   addTransactionController _addTransactionController = Get.find();
-  _addTransactionController.set('30000', '1');
+  await _addTransactionController.set('30000', '1');
   // _chitieuController.setChiTieu(ChiTieu(
   //     id: '3',
   //     iduser: '1',
@@ -53,7 +53,7 @@ Future<void> main(List<String> args) async {
   //     ngaythang: '1',
   //     loai: '1',
   //     chiphi: '1'));
-
+  print('11');
   runApp(
     GetMaterialApp(
       home: Scaffold(
