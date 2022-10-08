@@ -76,15 +76,17 @@ class AppTextFormField extends StatelessWidget {
   final bool autoFocus;
   final int minLines;
   final int maxLines;
+  final TextInputAction textInputAction;
 
   const AppTextFormField({
     Key? key,
     this.initialValue,
     this.keyboardType = TextInputType.text,
     this.controller,
-    this.autoFocus  = false,
+    this.autoFocus = false,
     this.minLines = 1,
     this.maxLines = 1,
+    this.textInputAction = TextInputAction.done,
   }) : super(key: key);
 
   @override
@@ -98,7 +100,7 @@ class AppTextFormField extends StatelessWidget {
       controller: controller,
       minLines: minLines,
       maxLines: minLines > maxLines ? minLines : maxLines,
-
+      textInputAction: TextInputAction.done,
     );
   }
 }
