@@ -21,7 +21,6 @@ class ChiTieuThangController extends GetxController {
           querySnapshot.docs.map((e) => ChiTieuThang.fromSnapshot(e)).toList();
       print('chitieuthangList: $chitieuthangList');
       allChiTieuThang.assignAll(chitieuthangList);
-      ;
     } catch (e) {
       print(e);
     }
@@ -33,7 +32,6 @@ class ChiTieuThangController extends GetxController {
       await firestore.collection('ChiTieuThang').doc(chiTieuThangModel.id).set({
         'iduser': chiTieuThangModel.iduser,
         'thang': chiTieuThangModel.thang,
-        'loai': chiTieuThangModel.loai,
         'tongchiphi': chiTieuThangModel.tongchiphi,
       });
       print('abcxyz');
