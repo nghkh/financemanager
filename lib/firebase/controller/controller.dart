@@ -60,8 +60,8 @@ class addTransactionController extends GetxController {
   Future<void> set(String chiphi, String loai) async {
     try {
       final FirebaseAuth auth = FirebaseAuth.instance;
-      // ChiTieuController chiTieuController = Get.find<ChiTieuController>();
-      ChiTieuController chiTieuController = Get.put(ChiTieuController());
+      ChiTieuController chiTieuController = Get.find<ChiTieuController>();
+      // ChiTieuController chiTieuController = Get.put(ChiTieuController());
       final id = '${chiTieuController.allchiTieu.value.length + 1}';
       print('id: $id');
       print(chiTieuController.allchiTieu.length);
