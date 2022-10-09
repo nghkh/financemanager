@@ -5,19 +5,17 @@ import 'package:baitap/model/chi_tieu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TestBackEnd extends StatelessWidget {
+class TestBackEnd extends GetView<ChiTieuController> {
   const TestBackEnd({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ChiTieuController _chitieuController = Get.find();
     return Obx(
       () => ListView.separated(
         separatorBuilder: (context, index) => const Divider(),
-        itemCount: _chitieuController.allchiTieu.length,
+        itemCount: controller.allchiTieu.length,
         itemBuilder: (context, index) {
-          print(_chitieuController.allchiTieu);
-          return Testcard(chitieumodel: _chitieuController.allchiTieu[index]);
+          return Testcard(chitieumodel: controller.allchiTieu[index]);
         },
       ),
     );
@@ -41,11 +39,12 @@ Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await firebaseInitialization.then((value) => {
         Get.put(ChiTieuController()),
+        Get.put(ChiTieuController()),
         Get.put(addTransactionController()),
       });
   ChiTieuController _chitieuController = Get.find();
   addTransactionController _addTransactionController = Get.find();
-  await _addTransactionController.set('30000', '1');
+  await _addTransactionController.set('60000', '1');
   // _chitieuController.setChiTieu(ChiTieu(
   //     id: '3',
   //     iduser: '1',
@@ -53,7 +52,7 @@ Future<void> main(List<String> args) async {
   //     ngaythang: '1',
   //     loai: '1',
   //     chiphi: '1'));
-  print('11');
+
   runApp(
     GetMaterialApp(
       home: Scaffold(

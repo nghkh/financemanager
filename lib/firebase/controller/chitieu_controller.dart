@@ -6,12 +6,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../model/chi_tieu.dart';
 
-class ChiTieuController extends addTransactionController {
+class ChiTieuController extends GetxController {
   final allchiTieu = <ChiTieu>[].obs;
   @override
-  void onReady() {
-    addChiTieu();
-    setChiTieu(chiTieuModel);
+  void onReady() async {
+    await addChiTieu();
+    await setChiTieu(chiTieuModel);
     super.onReady();
   }
 
@@ -22,7 +22,7 @@ class ChiTieuController extends addTransactionController {
 
       final chitieuList =
           querySnapshot.docs.map((e) => ChiTieu.fromSnapshot(e)).toList();
-      print('chitieuList: $chitieuList');
+
       allchiTieu.assignAll(chitieuList);
     } catch (e) {
       print(e);
@@ -39,7 +39,6 @@ class ChiTieuController extends addTransactionController {
         'loai': chiTieuModel.loai,
         'chiphi': chiTieuModel.chiphi,
       });
-      print('abcxyz');
     } catch (e) {
       print(e);
     }

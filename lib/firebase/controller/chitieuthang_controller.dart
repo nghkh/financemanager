@@ -19,7 +19,7 @@ class ChiTieuThangController extends GetxController {
           await firestore.collection('ChiTieuThang').get();
       final chitieuthangList =
           querySnapshot.docs.map((e) => ChiTieuThang.fromSnapshot(e)).toList();
-      print('chitieuthangList: $chitieuthangList');
+
       allChiTieuThang.assignAll(chitieuthangList);
     } catch (e) {
       print(e);
