@@ -16,140 +16,113 @@ class OverviewAccount extends StatelessWidget {
           controller: ScrollController(),
           child: Column(
             children: [
-              ProfilePic(),
-              SizedBox(
+              const ProfilePic(),
+              const SizedBox(
                 height: 20,
               ),
               Column(
                 children: [
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         'basic infomation',
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
-                        icon: Icon(Icons.edit),
+                        icon: const Icon(Icons.edit),
                         onPressed: () {
                           Get.toNamed('/profile_info');
                         },
                       ),
                     ],
                   ),
-                  GetContainerForProfile(
+                  const GetContainerForProfile(
                     text1: 'first name',
                     text2: 'John',
                   ),
-                  GetContainerForProfile(
+                  const GetContainerForProfile(
                     text1: 'last name',
                     text2: 'Doe',
                   ),
-                  GetContainerForProfile(
-                    text1: 'System ID member',
-                    text2: '123456789',
+                  const GetContainerForProfile(
+                    text1: 'gender',
+                    text2: 'Male',
                   ),
-                  GetContainerForProfile(
-                    text1: 'ID member',
-                    text2: 'user name',
-                  ),
-                  GetContainerForProfile(text1: 'gender', text2: 'Male'),
-                  GetContainerForProfile(
-                    text1: 'Martial Status',
-                    text2: 'Single',
-                  ),
-                  GetContainerForProfile(
+                  const GetContainerForProfile(
                     text1: 'Date of birth',
                     text2: '01/01/2000',
                   ),
-                  GetContainerForProfile(
+                  const GetContainerForProfile(
                     text1: 'Join date',
                     text2: '10/10/2020',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         'contact infomation',
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
-                        icon: Icon(Icons.edit),
+                        icon: const Icon(Icons.edit),
                         onPressed: () {
                           Get.toNamed('/profile_info');
                         },
                       ),
                     ],
                   ),
-                  GetContainerForProfile(
+                  const GetContainerForProfile(
                     text1: 'Mobile phone 1',
                     text2: '0123456789',
                   ),
-                  GetContainerForProfile(
-                    text1: 'Mobile phone 2',
-                    text2: '0123456789',
-                  ),
-                  GetContainerForProfile(
+                  const GetContainerForProfile(
                     text1: 'Email',
                     text2: 'johndoe@gmail.com',
                   ),
-                  GetContainerForProfile(
-                    text1: 'Address',
-                    text2: '123 abc street',
-                  ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         'Next of kin',
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       IconButton(
-                        icon: Icon(Icons.edit),
+                        icon: const Icon(Icons.edit),
                         onPressed: () {
                           Get.toNamed('/profile_info');
                         },
                       ),
                     ],
                   ),
-                  GetContainerForProfile(
+                  const GetContainerForProfile(
                     text1: 'Name',
                     text2: 'Jane Doe',
                   ),
-                  GetContainerForProfile(
-                    text1: 'Relationship',
-                    text2: 'Wife',
-                  ),
-                  GetContainerForProfile(
+                  const GetContainerForProfile(
                     text1: 'Mobile phone',
                     text2: '0123456789',
                   ),
-                  GetContainerForProfile(
-                      text1: 'Email', text2: 'johndoe@gmail.com'),
-                  GetContainerForProfile(
-                    text1: 'postal address',
-                    text2: '',
+                  const GetContainerForProfile(
+                    text1: 'Email',
+                    text2: 'johndoe@gmail.com',
                   ),
-                  GetContainerForProfile(
-                    text1: 'physical Address',
-                    text2: '123 abc street',
-                  ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                 ],

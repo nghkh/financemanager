@@ -1,4 +1,5 @@
 
+import 'package:baitap/constant/number_format.dart';
 import 'package:baitap/constant/text_style.dart';
 import 'package:baitap/pages/overview_pages/controller/wallet_controller.dart';
 import 'package:baitap/pages/overview_pages/tab_wallet/pev_month.dart';
@@ -15,18 +16,17 @@ class OverviewWallet extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 220, 220, 220),
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: Center(
             child: Column(
               children: [
-                Text(
+                const Text(
                   'Số dư',
-                  style: AppTextStyle.textStyle3Grey,
+                  style: AppTextStyle.textStyle3,
                 ),
                 Text(
-                  '100000 VNĐ',
+                  '${10000000.toMoneyString()} VNĐ ',
                   style: AppTextStyle.textStyle1,
                 ),
               ],
@@ -34,7 +34,7 @@ class OverviewWallet extends StatelessWidget {
           ),
           bottom: TabBar(
             controller: controller.tabController,
-            tabs: [
+            tabs: const [
               Tab(
                 text: 'Tháng trước',
               ),
@@ -46,7 +46,7 @@ class OverviewWallet extends StatelessWidget {
         ),
         body: TabBarView(
           controller: controller.tabController,
-          children: [
+          children: const [
             PreviousMonth(),
             ThisMonth(),
           ],
