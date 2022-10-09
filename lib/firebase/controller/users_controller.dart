@@ -33,6 +33,11 @@ class userController extends GetxController {
       await firestore.collection('users').doc(userModel.id).set({
         'email': userModel.email,
         'sdu': userModel.sdu,
+        'firstname': userModel.firstName,
+        'lastname': userModel.lastName,
+        'sdt': userModel.sdt,
+        'dob': userModel.dob,
+        'gender': userModel.gender,
       });
     } catch (e) {
       print(e);
