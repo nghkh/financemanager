@@ -6,22 +6,40 @@ import 'package:charts_flutter_new/flutter.dart' as charts;
 class OverviewHome extends StatelessWidget {
   OverviewHome({Key? key}) : super(key: key);
   OverViewHomeController controller = Get.put(OverViewHomeController());
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 220, 220, 220),
         body: Padding(
           padding: EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-            ),
-            height: MediaQuery.of(context).size.height * 0.3,
-            child: charts.BarChart(
-              controller.series.value,
-              animate: true,
-            ),
+          child: Column(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width * 0.87,
+                height: MediaQuery.of(context).size.height * 0.17,
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(12.0),
+                  ),
+                ),
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.01,),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(12.0),
+                  ),
+                ),
+                height: MediaQuery.of(context).size.height * 0.3,
+                child: charts.BarChart(
+                  controller.series.value,
+                  animate: true,
+                ),
+              ),
+            ],
           ),
         ),
       ),
