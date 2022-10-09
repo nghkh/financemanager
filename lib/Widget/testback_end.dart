@@ -1,4 +1,5 @@
 import 'package:baitap/firebase/controller/chitieu_controller.dart';
+import 'package:baitap/firebase/controller/chitieuthang_controller.dart';
 import 'package:baitap/firebase/controller/controller.dart';
 import 'package:baitap/firebase/controller/firebase_constant.dart';
 import 'package:baitap/model/chi_tieu.dart';
@@ -39,12 +40,17 @@ Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await firebaseInitialization.then((value) => {
         Get.put(ChiTieuController()),
-        Get.put(ChiTieuController()),
+        Get.put(ChiTieuThangController()),
         Get.put(addTransactionController()),
       });
   ChiTieuController _chitieuController = Get.find();
+  ChiTieuThangController _chiTieuThangController = Get.find();
   addTransactionController _addTransactionController = Get.find();
-  await _addTransactionController.set('60000', '1');
+  await _addTransactionController.set("100000", "3");
+
+  await _chiTieuThangController.tinhSodu();
+  var a = _chiTieuThangController.soduconlai;
+  print('sodu: ${a}');
   // _chitieuController.setChiTieu(ChiTieu(
   //     id: '3',
   //     iduser: '1',

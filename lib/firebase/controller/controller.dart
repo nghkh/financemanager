@@ -53,7 +53,6 @@ String timetoMonthRemoveSlah(DateTime date) {
 class addTransactionController extends GetxController {
   ChiTieuController chiTieuController = Get.find<ChiTieuController>();
 
-  RxString change = ''.obs;
   @override
   void onReady() {
     set(chiphi, loai);
@@ -73,7 +72,7 @@ class addTransactionController extends GetxController {
       await chiTieuController.addChiTieu();
       String id = '${chiTieuController.allchiTieu.length + 1}';
       final User? user = auth.currentUser;
-      final String iduser = user?.uid.toString() ?? "";
+      final String iduser = user?.uid.toString() ?? "1";
 
       //set cho chi tieu
       try {
@@ -94,6 +93,7 @@ class addTransactionController extends GetxController {
       ChiTieuThangController _chiTieuThangController =
           await Get.put(ChiTieuThangController());
       var tong = 0;
+      await chiTieuController.addChiTieu();
       var a = chiTieuController.allchiTieu
           .where((element) => element.iduser == iduser)
           .where((element) => element.idthang == timetoMonth(DateTime.now()))

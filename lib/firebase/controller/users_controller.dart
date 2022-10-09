@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import 'firebase_constant.dart';
 
 class userController extends GetxController {
-  final allUser = <User>[].obs;
-  late User userModel;
+  final allUser = <UserModel>[].obs;
+  late UserModel userModel;
   @override
   void onReady() {
     addUser();
@@ -19,32 +19,30 @@ class userController extends GetxController {
   Future<void> addUser() async {
     try {
       QuerySnapshot<Map<String, dynamic>> querySnapshot =
-          await firestore.collection('Users').get();
+          await firestore.collection('users').get();
       final userList =
-          querySnapshot.docs.map((e) => User.fromSnapshot(e)).toList();
-      print('userList: $userList');
+          querySnapshot.docs.map((e) => UserModel.fromSnapshot(e)).toList();
       allUser.assignAll(userList);
-      ;
     } catch (e) {
       print(e);
     }
   }
 
-  Future<void> setUser(User userModel) async {
+  Future<void> setUser(UserModel userModel) async {
     try {
-      await firestore.collection('Users').doc(userModel.id).set({
+      await firestore.collection('users').doc(userModel.id).set({
         'email': userModel.email,
+        'sdu': userModel.sdu,
       });
-      print('abcxyz');
     } catch (e) {
       print(e);
     }
   }
 
-  Future<void> deleteUser(User userModel) async {
+  Future<void> deleteUser(UserModel userModel) async {
     try {
-      await firestore.collection('Users').doc(userModel.id).delete();
-      print('abcxyz');
+      await firestore.collection('users').doc(userModel.id).delete();
+
       //xóa chi tiêu có cùng iduser= iduser của user vừa xóa
       await firestore
           .collection('ChiTieuThang')
@@ -65,12 +63,11 @@ class userController extends GetxController {
     }
   }
 
-  Future<void> updateUser(User userModel) async {
+  Future<void> updateUser(UserModel userModel) async {
     try {
-      await firestore.collection('Users').doc(userModel.id).update({
+      await firestore.collection('users').doc().update({
         'email': userModel.email,
       });
-      print('abcxyz');
     } catch (e) {
       print(e);
     }
