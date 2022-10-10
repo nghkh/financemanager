@@ -1,23 +1,22 @@
 import 'package:baitap/firebase/controller/chitieu_controller.dart';
+import 'package:baitap/firebase/controller/chitieuthang_controller.dart';
 import 'package:baitap/firebase/controller/controller.dart';
 import 'package:baitap/firebase/controller/firebase_constant.dart';
 import 'package:baitap/model/chi_tieu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TestBackEnd extends StatelessWidget {
+class TestBackEnd extends GetView<ChiTieuController> {
   const TestBackEnd({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ChiTieuController _chitieuController = Get.find();
     return Obx(
       () => ListView.separated(
         separatorBuilder: (context, index) => const Divider(),
-        itemCount: _chitieuController.allchiTieu.length,
+        itemCount: controller.allchiTieu.length,
         itemBuilder: (context, index) {
-          print(_chitieuController.allchiTieu);
-          return Testcard(chitieumodel: _chitieuController.allchiTieu[index]);
+          return Testcard(chitieumodel: controller.allchiTieu[index]);
         },
       ),
     );
@@ -41,11 +40,17 @@ Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await firebaseInitialization.then((value) => {
         Get.put(ChiTieuController()),
+        Get.put(ChiTieuThangController()),
         Get.put(addTransactionController()),
       });
   ChiTieuController _chitieuController = Get.find();
+  ChiTieuThangController _chiTieuThangController = Get.find();
   addTransactionController _addTransactionController = Get.find();
-  await _addTransactionController.set('30000', '1');
+  await _addTransactionController.set("100000", "3");
+
+  await _chiTieuThangController.tinhSodu();
+  var a = _chiTieuThangController.soduconlai;
+  print('sodu: ${a}');
   // _chitieuController.setChiTieu(ChiTieu(
   //     id: '3',
   //     iduser: '1',
@@ -53,7 +58,7 @@ Future<void> main(List<String> args) async {
   //     ngaythang: '1',
   //     loai: '1',
   //     chiphi: '1'));
-  print('11');
+
   runApp(
     GetMaterialApp(
       home: Scaffold(

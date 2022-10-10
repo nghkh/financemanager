@@ -1,9 +1,12 @@
+import 'package:baitap/firebase/controller/chitieu_controller.dart';
 import 'package:baitap/model/kinds_of_transcations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:baitap/firebase/controller/firebase_constant.dart';
 
 import '../../../model/chi_tieu.dart';
+
+import '../../../firebase/controller/controller.dart';
 
 class TranscationsPageController extends GetxController {
   TextEditingController textController = TextEditingController(text: '0');
@@ -107,4 +110,15 @@ late ChiTieu chiTieuModel;
   void onChanged(value) {
     selectedValue.value = value;
   }
+}
+
+class TranscationsBinding implements Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => TranscationsPageController());
+    Get.lazyPut(() => addTransactionController());
+    Get.lazyPut(()=>ChiTieuController());
+    // TODO: implement dependencies
+  }
+
 }

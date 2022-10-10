@@ -2,14 +2,12 @@ import 'package:baitap/Widget/date_picker.dart';
 import 'package:baitap/Widget/gender_drop_down.dart';
 import 'package:baitap/Widget/text_field.dart';
 import 'package:baitap/constant/text_style.dart';
+import 'package:baitap/firebase/controller/controller.dart';
 import 'package:baitap/pages/transcations_page/controller/transcation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AddTransactionsPage extends StatelessWidget {
-  TranscationsPageController get controller =>
-      Get.put<TranscationsPageController>(TranscationsPageController());
-
   const AddTransactionsPage({Key? key}) : super(key: key);
 
   @override
@@ -19,17 +17,19 @@ class AddTransactionsPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 1,
         backgroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           'Thêm giao dịch',
           style: AppTextStyle.textStyle4Black,
         ),
         actions: [
           TextButton(
-            onPressed: () {
-
+            onPressed: () async {
+              await Get.find<addTransactionController>().set(
+                  Get.find<TranscationsPageController>().textController.text,
+                  Get.find<TranscationsPageController>().selectedValue.value);
               Get.back();
             },
-            child: Text(
+            child: const Text(
               'Lưu',
             ),
           ),
@@ -44,15 +44,19 @@ class AddTransactionsPage extends StatelessWidget {
             return Column(
               children: [
                 AppTextFormField(
-                  controller: controller.textController,
+                  controller:
+                      Get.find<TranscationsPageController>().textController,
                   keyboardType: TextInputType.number,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 AppDropDown(
-                  value: controller.selectedValue.value,
-                  items: controller.listKindsofTrans
+                  value: Get.find<TranscationsPageController>()
+                      .selectedValue
+                      .value,
+                  items: Get.find<TranscationsPageController>()
+                      .listKindsofTrans
                       .map((element) => DropdownMenuItem(
                             value: element.value,
                             child: Row(
@@ -66,7 +70,8 @@ class AddTransactionsPage extends StatelessWidget {
                             ),
                           ))
                       .toList(),
-                  onChanged: (value) => controller.onChanged(value),
+                  onChanged: (value) =>
+                      Get.find<TranscationsPageController>().onChanged(value),
                 ),
                 Container(
                   decoration: BoxDecoration(
@@ -75,8 +80,12 @@ class AddTransactionsPage extends StatelessWidget {
                   ),
                   child: Obx(
                     () => AppDatePicker(
-                      onPressed: (){controller.chooseDate();},
-                      selectedDate: controller.selectedDate.value,
+                      onPressed: () {
+                        Get.find<TranscationsPageController>().chooseDate();
+                      },
+                      selectedDate: Get.find<TranscationsPageController>()
+                          .selectedDate
+                          .value,
                     ),
                   ),
                 ),

@@ -25,7 +25,7 @@ abstract class AppTextStyle {
   );
   static const TextStyle textStyle3Grey = TextStyle(
     fontSize: 14,
-    color: Colors.black,
+    color: Colors.grey,
   );
   static const TextStyle textStyle3bold = TextStyle(
     fontSize: 14,
@@ -36,6 +36,10 @@ abstract class AppTextStyle {
     fontSize: 14,
     color: Colors.white,
     fontWeight: FontWeight.bold,
+  );
+  static const TextStyle textStyle3W = TextStyle(
+    fontSize: 14,
+    color: Colors.white,
   );
   static const TextStyle textStyle3GBold = TextStyle(
     fontSize: 14,
@@ -52,5 +56,9 @@ abstract class AppTextStyle {
     fontSize: 15,
     fontWeight: FontWeight.bold,
   );
-
+  static const TextStyle textStyle6WBold = TextStyle(
+    fontSize: 36,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  );
 }

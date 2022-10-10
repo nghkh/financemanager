@@ -10,6 +10,7 @@ import '../../pages/overview_pages/controller/tab_controller.dart';
 import '../../pages/overview_pages/overview.dart';
 import '../../pages/profile_page/profile_basic_info.dart';
 import '../../pages/profile_page/profile_page.dart';
+import '../../pages/transcations_page/controller/transcation_controller.dart';
 
 class AppRoutes {
   static List<GetPage> routes() => [
@@ -34,7 +35,7 @@ class AppRoutes {
         ),
         GetPage(
           name: '/profile_info',
-          page: () => const ProfileInfo(),
+          page: () => const ProfileInfo1(),
         ),
         GetPage(
           name: '/profile_page',
@@ -43,6 +44,7 @@ class AppRoutes {
         GetPage(
           name: '/add_transaction',
           page: (() => const AddTransactionsPage()),
+          binding: TranscationsBinding(),
         )
       ];
 }

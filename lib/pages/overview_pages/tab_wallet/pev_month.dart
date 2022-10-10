@@ -6,37 +6,42 @@ class PreviousMonth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 220, 220, 220),
-      body: Container(
-        padding: EdgeInsets.all(8.0),
-        color: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            SizedBox(
-              height: 24,
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              color: Colors.white,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  Row(
+                    children: const [
+                      Text('Số dư'),
+                      Expanded(child: SizedBox()),
+                      Text('10000000'),
+                    ],
+                  ),
+                  Row(
+                    children: const [
+                      Text('Tiền ra'),
+                      Expanded(child: SizedBox()),
+                      Text('500000'),
+                    ],
+                  ),
+                  const Divider(),
+                  Row(
+                    children: const [
+                      Expanded(child: SizedBox()),
+                      Text('9500000'),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            Row(
-              children: [
-                Text('Số dư'),
-                Expanded(child: SizedBox()),
-                Text('10000000'),
-              ],
-            ),
-            Row(
-              children: [
-                Text('Tiền ra'),
-                Expanded(child: SizedBox()),
-                Text('500000'),
-              ],
-            ),
-            Divider(),
-            Row(
-              children: [
-                Expanded(child: SizedBox()),
-                Text('9500000'),
-              ],
-            ),
-            Container(color: Colors.grey[400], height: 16,),
           ],
         ),
       ),

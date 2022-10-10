@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase/controller/firebase_constant.dart';
 
 int? initScreen;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // InitialBindings().dependencies();
@@ -32,7 +33,7 @@ void main() async {
         primarySwatch: Colors.green,
         primaryColor: Colors.green,
         iconTheme: const IconThemeData(color: Colors.green, opacity: 1),
-        scaffoldBackgroundColor: Color.fromARGB(255, 222, 222, 222),
+        scaffoldBackgroundColor: Color.fromARGB(255, 248, 250, 252),
       ),
       initialRoute: initScreen == 0 || initScreen == null ? '/intro' : '/',
       getPages: AppRoutes.routes(),

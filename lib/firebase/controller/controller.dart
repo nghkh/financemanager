@@ -24,17 +24,6 @@ class AuthController extends GetxController {
     firebaseUser.bindStream(auth.userChanges());
   }
 }
-// ever(firebaseUser, _setInitialScreen);
-
-// _setInitialScreen(User? user) {
-//   if (user != null) {
-//     // user is logged in
-//     Get.offAll(() => const SignUpPage());
-//   } else {
-//     // user is null as in user is not available or not logged in
-//     Get.to(() => LoginPage());
-//   }
-// }
 
 void signOut() {
   try {
@@ -57,25 +46,35 @@ String timetoYear(DateTime date) {
   return '${date.year}';
 }
 
+String timetoMonthRemoveSlah(DateTime date) {
+  return '${date.month}${date.year}';
+}
+
 class addTransactionController extends GetxController {
-  final allchiTieu = <ChiTieu>[].obs;
+  ChiTieuController chiTieuController = Get.find<ChiTieuController>();
 
   @override
   void onReady() {
+    set(chiphi, loai);
     super.onReady();
   }
 
+  late String chiphi;
+  late String loai;
   late ChiTieu chiTieuModel;
   late ChiTieuThang chiTieuThangmodel;
   Future<void> set(String chiphi, String loai) async {
     try {
       final FirebaseAuth auth = FirebaseAuth.instance;
-      ChiTieuController chiTieuController = Get.find();
-      final id = '${chiTieuController.allchiTieu.length + 1}';
-      print('id: $id');
-      print(chiTieuController.allchiTieu.length);
+      await firebaseInitialization.then((value) => {
+            Get.put(ChiTieuController()),
+          });
+      await chiTieuController.addChiTieu();
+      String id = '${chiTieuController.allchiTieu.length + 1}';
       final User? user = auth.currentUser;
-      final String iduser = user?.uid.toString() ?? "";
+      final String iduser = user?.uid.toString() ?? "1";
+
+      //set cho chi tieu
       try {
         await chiTieuController.setChiTieu(
           ChiTieu(
@@ -89,21 +88,28 @@ class addTransactionController extends GetxController {
       } catch (e) {
         print(e);
       }
+
       //tongchiphi= tong chitieu trong thang
       ChiTieuThangController _chiTieuThangController =
-          Get.put(ChiTieuThangController());
+          await Get.put(ChiTieuThangController());
       var tong = 0;
-      String tongchiphi = chiTieuController.allchiTieu
+      await chiTieuController.addChiTieu();
+      var a = chiTieuController.allchiTieu
           .where((element) => element.iduser == iduser)
           .where((element) => element.idthang == timetoMonth(DateTime.now()))
-          .map((e) => {tong + int.parse(e.chiphi)})
-          .toString();
-      _chiTieuThangController.setChiTieuThang(ChiTieuThang(
-          tongchiphi: tongchiphi,
-          thang: timetoMonth(DateTime.now()),
-          id: '$iduser${timetoMonth(DateTime.now())}',
-          iduser: iduser));
-      print(tongchiphi);
+          .map((e) => tong = tong + int.parse(e.chiphi));
+      print(a);
+      String tongchiphi = tong.toString();
+      print(tongchiphi.toString());
+      var idChiTieuThang = iduser + timetoMonthRemoveSlah(DateTime.now());
+      print(idChiTieuThang);
+      _chiTieuThangController.setChiTieuThang(
+        ChiTieuThang(
+            id: idChiTieuThang,
+            tongchiphi: tongchiphi,
+            thang: timetoMonth(DateTime.now()),
+            iduser: iduser),
+      );
     } catch (e) {
       print(e);
     }

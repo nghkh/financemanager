@@ -1,3 +1,4 @@
+import 'package:baitap/firebase/controller/firebase_constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -31,8 +32,6 @@ class UserModel {
 class NameProfileController extends GetxController {
   TextEditingController firstName = TextEditingController();
   TextEditingController lastName = TextEditingController();
-
-
 
 }
 
