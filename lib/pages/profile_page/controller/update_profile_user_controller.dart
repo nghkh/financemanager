@@ -1,45 +1,42 @@
 import 'package:baitap/firebase/controller/firebase_constant.dart';
+import 'package:baitap/firebase/controller/users_controller.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:baitap/pages/transcations_page/controller/transcation_controller.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class RxUserModel {
-  final id = 0.obs;
-  final name = 'uid'.obs;
-}
+import '../../login_signup/controller/controller_login.dart';
 
-class UserModel {
-  UserModel({id, name});
-
-  final rx = RxUserModel();
-
-  get name => rx.name.value;
-  set name(value) => rx.name.value = value;
-
-  get id => rx.id.value;
-  set id(value) => rx.id.value = value;
-
-  UserModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-  }
-
-  Map<String, dynamic> toJson() => {
-    'name' : name, 'id':id,
-  };
-}
 
 
 class NameProfileController extends GetxController {
   TextEditingController firstName = TextEditingController();
   TextEditingController lastName = TextEditingController();
+  TextEditingController fillEmail = TextEditingController();
+  var listGenders = <DropdownMenuItem<String>>[].obs;
+  var selectedValue = 'male'.obs;
 
+  @override
+  void onInit() {
+    listGenders.addAll(<DropdownMenuItem<String>>[
+      const DropdownMenuItem(value: "male", child: Text("Nam")),
+      const DropdownMenuItem(value: "female", child: Text("Nữ")),
+    ]);
+    // TODO: implement onInit
+    super.onInit();
+  }
+
+  void onChanged(value) {
+    selectedValue.value = value;
+  }
 }
 
 class UpdateProfileBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<NameProfileController>(() => NameProfileController());
+    Get.lazyPut<UserController>(() => UserController());
+    Get.lazyPut<TranscationsPageController>(() => TranscationsPageController());
     // TODO: implement dependencies
   }
-
 }

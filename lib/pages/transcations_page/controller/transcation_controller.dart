@@ -2,6 +2,9 @@ import 'package:baitap/firebase/controller/chitieu_controller.dart';
 import 'package:baitap/model/kinds_of_transcations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:baitap/firebase/controller/firebase_constant.dart';
+
+import '../../../model/chi_tieu.dart';
 
 import '../../../firebase/controller/controller.dart';
 
@@ -15,18 +18,20 @@ class TranscationsPageController extends GetxController {
   void onReady() {
     super.onReady();
   }
+
   chooseDate() async {
     DateTime? pickedDate = await showDatePicker(
-        context: Get.context!,
-        initialDate: selectedDate.value,
-        firstDate: DateTime(2000),
-        lastDate: DateTime(2024),
-        //initialEntryMode: DatePickerEntryMode.input,
-        // initialDatePickerMode: DatePickerMode.year,
-        helpText: 'Hãy chọn ngày',
-        cancelText: 'Đóng',
-        confirmText: 'Xác nhận',
-        fieldHintText: 'Month/Date/Year',);
+      context: Get.context!,
+      initialDate: selectedDate.value,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2024),
+      //initialEntryMode: DatePickerEntryMode.input,
+      // initialDatePickerMode: DatePickerMode.year,
+      helpText: 'Hãy chọn ngày',
+      cancelText: 'Đóng',
+      confirmText: 'Xác nhận',
+      fieldHintText: 'Month/Date/Year',
+    );
     if (pickedDate != null && pickedDate != selectedDate.value) {
       selectedDate.value = pickedDate;
     }
@@ -86,6 +91,20 @@ class TranscationsPageController extends GetxController {
     ]);
     // TODO: implement onInit
     super.onInit();
+  }
+late ChiTieu chiTieuModel;
+  void addTrans() async {
+    final user = await auth.currentUser!;
+    final transcations =
+        await firestore.collection('ChiTieu').doc(user.uid).set(
+          {
+            'ngaythang': chiTieuModel.ngaythang,
+            'iduser': chiTieuModel.iduser,
+            'idthang': chiTieuModel.idthang,
+            'loai': chiTieuModel.loai,
+            'chiphi': chiTieuModel.chiphi,
+          }
+        );
   }
 
   void onChanged(value) {

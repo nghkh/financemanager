@@ -18,7 +18,7 @@ class SignUpBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => ShowPasswords());
-    Get.lazyPut<EmailPassController>(() => EmailPassController());
+    Get.lazyPut<AppAuthController>(() => AppAuthController());
     // TODO: implement dependencies
   }
 

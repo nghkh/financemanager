@@ -28,20 +28,6 @@ List<DropdownMenuItem<String>> get dropdownMarial {
   return menuItems;
 }
 
-void main() {
-  runApp(MaterialApp(
-    title: "Dropdown Button",
-    home: Scaffold(
-      appBar: AppBar(
-        title: const Text("Dropdown Button"),
-      ),
-      body: Center(
-        child: GetDropDown(items: dropdownGender, hint: "Select gender"),
-      ),
-    ),
-  ));
-}
-
 class GetDropDown extends StatefulWidget {
   final List<DropdownMenuItem<String>>? items;
   final String? hint;
@@ -90,11 +76,13 @@ class AppDropDown extends StatelessWidget {
   final String? hint;
   final Function(String?)? onChanged;
   final String value;
+
   const AppDropDown({
     Key? key,
     required this.items,
     this.hint,
-    this.onChanged, required this.value,
+    this.onChanged,
+    required this.value,
   }) : super(key: key);
 
   @override

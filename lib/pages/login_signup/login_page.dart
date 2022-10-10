@@ -19,7 +19,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(12.0),
         child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
                 AppTextField(
                   labelText: 'Email',
                   hintText: 'Nhập E-mail',
-                  controller: Get.find<EmailPassController>().emailController,
+                  controller: Get.find<AppAuthController>().emailController,
                   textInputAction: TextInputAction.done,
                   // onSubmitted: (email) {
                   //   EmailPassController().emailController.text;
@@ -51,7 +51,7 @@ class LoginPage extends StatelessWidget {
                     hintText: 'Nhập mật khẩu',
                     labelText: 'Mật khẩu',
                     controller:
-                        Get.find<EmailPassController>().passwordController,
+                        Get.find<AppAuthController>().passwordController,
                     // onSubmitted: (password){EmailPassController().passwordController.text;},
                     textInputAction: TextInputAction.done,
                     suffixIcon: IconButton(
@@ -78,7 +78,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 AppButton(
                   onPressed: () {
-                    Get.find<EmailPassController>().login();
+                    Get.find<AppAuthController>().login();
                   },
                   text: 'Đăng nhập',
                 ),

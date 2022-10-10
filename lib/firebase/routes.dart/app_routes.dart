@@ -8,6 +8,7 @@ import '../../pages/login_signup/login_page.dart';
 import '../../pages/login_signup/sign_up_page.dart';
 import '../../pages/overview_pages/controller/tab_controller.dart';
 import '../../pages/overview_pages/overview.dart';
+import '../../pages/profile_page/controller/update_profile_user_controller.dart';
 import '../../pages/profile_page/profile_basic_info.dart';
 import '../../pages/profile_page/profile_page.dart';
 import '../../pages/transcations_page/controller/transcation_controller.dart';
@@ -35,7 +36,8 @@ class AppRoutes {
         ),
         GetPage(
           name: '/profile_info',
-          page: () => const ProfileInfo1(),
+          page: () => const ProfileInfo(),
+          binding: UpdateProfileBinding(),
         ),
         GetPage(
           name: '/profile_page',

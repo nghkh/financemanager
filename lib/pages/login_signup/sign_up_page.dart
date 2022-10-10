@@ -18,7 +18,7 @@ class SignUpPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+          padding: const EdgeInsets.only(left: 12.0, right: 12.0),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -42,14 +42,14 @@ class SignUpPage extends StatelessWidget {
                 AppTextField(
                   hintText: 'Nhập địa chỉ E-mail',
                   labelText: 'Địa chỉ E-mail',
-                  controller: Get.find<EmailPassController>().emailController,
+                  controller: Get.find<AppAuthController>().emailController,
                 ),
                 Obx(
                   () => AppTextField(
                     obscureText: showPasswords.obscureText.value,
                     hintText: 'Nhập mật khẩu',
                     labelText: 'Mật khẩu',
-                    controller: Get.find<EmailPassController>().passwordController,
+                    controller: Get.find<AppAuthController>().passwordController,
                     suffixIcon: IconButton(
                       icon: Icon(showPasswords.obscureText.value
                           ? Icons.visibility
@@ -60,7 +60,7 @@ class SignUpPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 24-16),
                 AppButton(
-                  onPressed: () => Get.find<EmailPassController>().register(),
+                  onPressed: () => Get.find<AppAuthController>().register(),
                   text: 'Đăng ký',
                 ),
                 const SizedBox(height: 24),
