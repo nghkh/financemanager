@@ -19,5 +19,3 @@ final ChiTieuRef = firestore.collection('ChiTieu');
 final ChiTieuThangRef = firestore.collection('ChiTieuThang');
 
 
-
-final user = auth.currentUser;

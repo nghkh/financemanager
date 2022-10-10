@@ -26,6 +26,7 @@ class AddTransactionsPage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () {
+
               Get.back();
             },
             child: Text(

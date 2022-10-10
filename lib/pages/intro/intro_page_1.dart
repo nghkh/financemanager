@@ -8,42 +8,45 @@ class IntroPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Row(
-          children: [
-            const Spacer(),
-            TextButton(
-              onPressed: () {Get.to('/signup');},
-              child: const Text('Skip'),
-            )
-          ],
-        ),
-        Image.asset(
-          'assets/intro_1.png',
-          height: 150,
-          width: 150,
-          fit: BoxFit.cover,
-        ),
-        Text(
-          'Double your financial capacity',
-          style: AppTextStyle.textStyle4Black,
-          textAlign: TextAlign.left,
-        ),
-        const Padding(
-          padding:
-          EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
-          child: Align(
-            alignment: Alignment.bottomLeft,
-            child: Text(
-              'We inject saving habits to the current system by creating easy and fair saving plans that would be favorable to our customers.',
-              style: AppTextStyle.textStyle3,
-              textAlign: TextAlign.center,
+    return SizedBox(
+      height: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              const Spacer(),
+              TextButton(
+                onPressed: () {Get.to('/signup');},
+                child: const Text('Skip'),
+              )
+            ],
+          ),
+          Image.asset(
+            'assets/intro_1.png',
+            height: 150,
+            width: 150,
+            fit: BoxFit.cover,
+          ),
+          Text(
+            'Double your financial capacity',
+            style: AppTextStyle.textStyle4Black,
+            textAlign: TextAlign.left,
+          ),
+          const Padding(
+            padding:
+            EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                'We inject saving habits to the current system by creating easy and fair saving plans that would be favorable to our customers.',
+                style: AppTextStyle.textStyle3,
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
