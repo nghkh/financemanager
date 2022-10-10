@@ -2,7 +2,7 @@
     package="com.example.baitap">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
    <application
-        android:label="baitap"
+        android:label="Chi Tiêu"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
