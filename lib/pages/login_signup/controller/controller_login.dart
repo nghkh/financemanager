@@ -1,8 +1,8 @@
-import 'package:baitap/Widget/button.dart';
 import 'package:baitap/Widget/dialogs.dart';
 import 'package:baitap/firebase/controller/controller.dart';
 import 'package:baitap/firebase/controller/firebase_constant.dart';
 import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
+import 'package:baitap/pages/login_signup/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -15,41 +15,41 @@ class CheckBoxLoginController extends GetxController {
   }
 }
 
-class EmailPassController extends GetxController {
+class AppAuthController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  void login() {
-    // try {
-    //   final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-    //     email: emailController.text,
-    //     password: passwordController.text,
-    //   );
-    //   Get.offAndToNamed('/overview');
-    //   // credential.user!.uid;
-    // } on FirebaseAuthException catch (e) {
-    //   if (e.code == 'user-not-found') {
-    //     Get.dialog(
-    //       AppAlertDialog(
-    //         title: 'LỖI',
-    //         content: 'Không tìm thấy người dùng, vui lòng thử lại',
-    //         textButton: 'ĐÓNG',
-    //         onPressed: () => Get.back(),
-    //       ),
-    //     );
-    //     print('No user found for that email.');
-    //   } else if (e.code == 'wrong-password') {
-    //     Get.dialog(
-    //       AppAlertDialog(
-    //         title: 'LỖI',
-    //         content: 'Mật khẩu không trùng với thông tin đăng ký',
-    //         textButton: 'ĐÓNG',
-    //         onPressed: () => Get.back(),
-    //       ),
-    //     );
-    //   }
-    //   // Get.toNamed('/overview');
-    // }
+  void login() async {
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      Get.offAndToNamed('/overview');
+      // credential.user!.uid;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        Get.dialog(
+          AppAlertDialog(
+            title: 'LỖI',
+            content: 'Không tìm thấy người dùng, vui lòng thử lại',
+            textButton: 'ĐÓNG',
+            onPressed: () => Get.back(),
+          ),
+        );
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        Get.dialog(
+          AppAlertDialog(
+            title: 'LỖI',
+            content: 'Mật khẩu không trùng với thông tin đăng ký',
+            textButton: 'ĐÓNG',
+            onPressed: () => Get.back(),
+          ),
+        );
+      }
+      // Get.toNamed('/overview');
+    }
     Get.offAndToNamed('/overview');
   }
 
@@ -85,6 +85,12 @@ class EmailPassController extends GetxController {
       print(e.toString());
     }
   }
+
+  void signOut() async {
+    await FirebaseAuth.instance.signOut();
+    Get.toNamed('/login');
+  }
+
 }
 
 class LoginButtonController extends GetxController {}
@@ -94,7 +100,7 @@ class LoginBinding implements Bindings {
   void dependencies() {
     Get.lazyPut<ShowPasswords>(() => ShowPasswords());
     Get.lazyPut<CheckBoxLoginController>(() => CheckBoxLoginController());
-    Get.lazyPut<EmailPassController>(() => EmailPassController());
+    Get.lazyPut<AppAuthController>(() => AppAuthController());
     Get.lazyPut<LoginButtonController>(() => LoginButtonController());
     Get.lazyPut(() => AuthController());
     // TODO: implement dependencies

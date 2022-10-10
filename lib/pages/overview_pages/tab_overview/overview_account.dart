@@ -1,5 +1,7 @@
+import 'package:baitap/Widget/button.dart';
 import 'package:baitap/Widget/container_for_profile.dart';
 import 'package:baitap/Widget/profile_pic.dart';
+import 'package:baitap/pages/login_signup/controller/controller_login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -84,6 +86,13 @@ class OverviewAccount extends StatelessWidget {
                   const GetContainerForProfile(
                     text1: 'Email',
                     text2: 'johndoe@gmail.com',
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  AppButton(
+                    onPressed: () => Get.find<AppAuthController>().signOut(),
+                    text: 'Đăng xuất',
                   ),
                 ],
               )

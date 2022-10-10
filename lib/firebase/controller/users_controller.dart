@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import 'firebase_constant.dart';
 
-class userController extends GetxController {
+class UserController extends GetxController {
   final allUser = <UserModel>[].obs;
   late UserModel userModel;
   @override

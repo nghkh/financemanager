@@ -83,9 +83,9 @@ class ChiTieuThangController extends GetxController {
       String sdu = '';
 
       await firebaseInitialization.then((value) => {
-            Get.put(userController()),
+            Get.put(UserController()),
           });
-      userController _userController = Get.find<userController>();
+      UserController _userController = Get.find<UserController>();
       await _userController.addUser();
       UserModel _usersModel =
           _userController.allUser.firstWhere((element) => element.id == iduser);
