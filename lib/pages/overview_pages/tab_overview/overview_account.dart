@@ -1,13 +1,14 @@
 import 'package:baitap/Widget/button.dart';
 import 'package:baitap/Widget/container_for_profile.dart';
 import 'package:baitap/Widget/profile_pic.dart';
+import 'package:baitap/model/users.dart';
 import 'package:baitap/pages/login_signup/controller/controller_login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class OverviewAccount extends StatelessWidget {
-  const OverviewAccount({Key? key}) : super(key: key);
-
+  const OverviewAccount({Key? key, required this.userModel}) : super(key: key);
+  final UserModel userModel;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -42,21 +43,21 @@ class OverviewAccount extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const GetContainerForProfile(
+                  GetContainerForProfile(
                     text1: 'first name',
-                    text2: 'John',
+                    text2: userModel.firstName,
                   ),
-                  const GetContainerForProfile(
+                  GetContainerForProfile(
                     text1: 'last name',
-                    text2: 'Doe',
+                    text2: userModel.lastName,
                   ),
-                  const GetContainerForProfile(
+                  GetContainerForProfile(
                     text1: 'gender',
-                    text2: 'Male',
+                    text2: userModel.gender,
                   ),
-                  const GetContainerForProfile(
+                  GetContainerForProfile(
                     text1: 'Date of birth',
-                    text2: '01/01/2000',
+                    text2: userModel.dob,
                   ),
                   const SizedBox(
                     height: 20,
@@ -79,13 +80,13 @@ class OverviewAccount extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const GetContainerForProfile(
+                  GetContainerForProfile(
                     text1: 'Mobile phone 1',
-                    text2: '0123456789',
+                    text2: userModel.sdt,
                   ),
-                  const GetContainerForProfile(
+                  GetContainerForProfile(
                     text1: 'Email',
-                    text2: 'johndoe@gmail.com',
+                    text2: userModel.email,
                   ),
                   const SizedBox(
                     height: 20,

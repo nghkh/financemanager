@@ -1,3 +1,4 @@
+import 'package:baitap/firebase/controller/users_controller.dart';
 import 'package:baitap/pages/overview_pages/controller/overview_account_controller.dart';
 import 'package:baitap/pages/overview_pages/controller/wallet_controller.dart';
 import 'package:baitap/pages/overview_pages/tab_overview/overview_account.dart';
@@ -11,7 +12,7 @@ class TabAppController extends GetxController {
   static TabAppController get to => Get.find();
   var currentIndex = 0.obs;
   final pages = <String>['/overview_home', '/wallet', '/plan', '/account', '/page2'];
-
+  UserController get userController => Get.put<UserController>(UserController());
   void changePage(int index) {
     currentIndex.value = index;
     Get.toNamed(pages[index], id: 1);
@@ -38,7 +39,7 @@ class TabAppController extends GetxController {
     } else if (settings.name == '/account'){
       return GetPageRoute(
         settings: settings,
-        page: () => const OverviewAccount(),
+        page: () => OverviewAccount(userModel: userController.userModel,),
         binding: AccountPageBinding(),
       );
     }
