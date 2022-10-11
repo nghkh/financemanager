@@ -2,6 +2,9 @@ import 'package:baitap/Widget/date_picker.dart';
 import 'package:baitap/Widget/gender_drop_down.dart';
 import 'package:baitap/Widget/profile_pic.dart';
 import 'package:baitap/Widget/text_field.dart';
+import 'package:baitap/firebase/controller/firebase_constant.dart';
+import 'package:baitap/firebase/controller/users_controller.dart';
+import 'package:baitap/model/users.dart';
 import 'package:baitap/pages/profile_page/controller/update_profile_user_controller.dart';
 import 'package:baitap/pages/transcations_page/controller/transcation_controller.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +20,22 @@ class ProfileInfo extends StatelessWidget {
         appBar: AppBar(
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () async {
+                await Get.find<UserController>().setUser(UserModel(
+                  id: auth.currentUser!.uid,
+                  email: Get.find<NameProfileController>().fillEmail.text,
+                  sdu: Get.find<NameProfileController>().fillBalance.text,
+                  firstName: Get.find<NameProfileController>().firstName.text,
+                  lastName: Get.find<NameProfileController>().lastName.text,
+                  gender: Get.find<NameProfileController>().selectedValue.value,
+                  sdt: Get.find<NameProfileController>().fillPhone.text,
+                  dob: Get.find<TranscationsPageController>()
+                      .selectedDate
+                      .value
+                      .toString(),
+                ));
+                Get.back();
+              },
               icon: Icon(Icons.done),
             ),
           ],
@@ -42,9 +60,20 @@ class ProfileInfo extends StatelessWidget {
                     controller: Get.find<NameProfileController>().lastName,
                   ),
                   AppTextField(
+                    hintText: 'Nhập số dư tài khoản',
+                    labelText: 'Số dư tài khoản',
+                    controller: Get.find<NameProfileController>().fillBalance,
+                  ),
+                  AppTextField(
                     hintText: 'Nhập email',
                     labelText: 'Email',
                     controller: Get.find<NameProfileController>().fillEmail,
+                  ),
+                  AppTextField(
+                    hintText: 'Nhập số điện thoại',
+                    labelText: 'Số điện thoại',
+                    controller: Get.find<NameProfileController>().fillPhone,
+                    keyboardType: TextInputType.phone,
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -54,9 +83,11 @@ class ProfileInfo extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: AppDropDown(
-                        items: Get.find<NameProfileController>().listGenders.value,
-                        value:
-                            Get.find<NameProfileController>().selectedValue.value,
+                        items:
+                            Get.find<NameProfileController>().listGenders.value,
+                        value: Get.find<NameProfileController>()
+                            .selectedValue
+                            .value,
                         onChanged: (value) =>
                             Get.find<NameProfileController>().onChanged(value),
                       ),

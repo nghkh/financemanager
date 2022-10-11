@@ -13,6 +13,8 @@ class NameProfileController extends GetxController {
   TextEditingController firstName = TextEditingController();
   TextEditingController lastName = TextEditingController();
   TextEditingController fillEmail = TextEditingController();
+  TextEditingController fillPhone = TextEditingController();
+  TextEditingController fillBalance = TextEditingController();
   var listGenders = <DropdownMenuItem<String>>[].obs;
   var selectedValue = 'male'.obs;
 
