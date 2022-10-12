@@ -8,7 +8,7 @@ class OverviewHomeController extends GetxController {
   @override
   void onInit() {
     dataChart.addAll([
-      ChartApp('Tháng trước', 12000000),
+      ChartApp('Tháng trước', 0),
       ChartApp('Tháng này', 1200000),
     ]);
 

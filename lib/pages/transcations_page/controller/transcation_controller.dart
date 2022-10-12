@@ -44,48 +44,48 @@ class TranscationsPageController extends GetxController {
           value: '1',
           image: Image.asset(
             'assets/icons/eat.png',
-            width: 24,
-            height: 24,
+            width: 30,
+            height: 30,
           ),
           text: 'Ăn uống'),
       KindOfTransactions(
           value: '2',
           image: Image.asset(
             'assets/icons/invoice.png',
-            width: 24,
-            height: 24,
+            width: 30,
+            height: 30,
           ),
           text: 'Hoá đơn Internet'),
       KindOfTransactions(
           value: '3',
           image: Image.asset(
             'assets/icons/rent.png',
-            width: 24,
-            height: 24,
+            width: 30,
+            height: 30,
           ),
           text: 'Hoá đơn thuê nhà'),
       KindOfTransactions(
           value: '4',
           image: Image.asset(
             'assets/icons/energy.png',
-            width: 24,
-            height: 24,
+            width: 30,
+            height: 30,
           ),
           text: 'Hoá đơn điện'),
       KindOfTransactions(
           value: '5',
           image: Image.asset(
             'assets/icons/faucet.png',
-            width: 24,
-            height: 24,
+            width: 30,
+            height: 30,
           ),
           text: 'Hoá đơn nước'),
       KindOfTransactions(
           value: '6',
           image: Image.asset(
             'assets/icons/question.png',
-            width: 24,
-            height: 24,
+            width: 30,
+            height: 30,
           ),
           text: 'Chi tiêu khác'),
     ]);

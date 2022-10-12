@@ -46,7 +46,7 @@ class OverviewWallet extends StatelessWidget {
         ),
         body: TabBarView(
           controller: controller.tabController,
-          children: const [
+          children: [
             PreviousMonth(),
             ThisMonth(),
           ],

@@ -6,10 +6,12 @@ import 'package:get/get.dart';
 import 'package:baitap/pages/overview_pages/controller/overview_home_controller.dart';
 import 'package:charts_flutter_new/flutter.dart' as charts;
 
+import '../../../firebase/controller/chitieuthang_controller.dart';
+
 class OverviewHome extends StatelessWidget {
   OverviewHome({Key? key}) : super(key: key);
   final OverviewHomeController controller = Get.put(OverviewHomeController());
-  final AccountController sodu = Get.put(AccountController());
+  final ChiTieuThangController sodu = Get.put(ChiTieuThangController());
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +77,7 @@ class OverviewHome extends StatelessWidget {
             const SizedBox(height: 12,),
             Obx(() {
               return Text(
-                int.parse(sodu.userModel.value.sdu).toMoneyString(),
+                '${sodu.soduconlai}',
                 // NumberFormat.decimalPattern('en_us').format(10000000),
                 style: AppTextStyle.textStyle6WBold,
               );
