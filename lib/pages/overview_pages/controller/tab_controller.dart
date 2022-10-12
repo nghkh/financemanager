@@ -11,8 +11,17 @@ import 'package:get/get.dart';
 class TabAppController extends GetxController {
   static TabAppController get to => Get.find();
   var currentIndex = 0.obs;
-  final pages = <String>['/overview_home', '/wallet', '/plan', '/account', '/page2'];
-  UserController get userController => Get.put<UserController>(UserController());
+  final pages = <String>[
+    '/overview_home',
+    '/wallet',
+    '/plan',
+    '/account',
+    '/page2'
+  ];
+
+  UserController get userController =>
+      Get.put<UserController>(UserController());
+
   void changePage(int index) {
     currentIndex.value = index;
     Get.toNamed(pages[index], id: 1);
@@ -30,16 +39,16 @@ class TabAppController extends GetxController {
         page: () => const OverviewWallet(),
         binding: WalletBinding(),
       );
-    } else if (settings.name == '/plan'){
+    } else if (settings.name == '/plan') {
       return GetPageRoute(
         settings: settings,
         page: () => const OverViewSum(),
-
       );
-    } else if (settings.name == '/account'){
+    } else if (settings.name == '/account') {
       return GetPageRoute(
         settings: settings,
-        page: () => OverviewAccount(userModel: userController.userModel,),
+        page: () => OverviewAccount(
+        ),
         binding: AccountPageBinding(),
       );
     }

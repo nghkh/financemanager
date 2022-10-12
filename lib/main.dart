@@ -26,6 +26,7 @@ void main() async {
         ),
       );
 
+
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,

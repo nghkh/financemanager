@@ -3,6 +3,7 @@ import 'package:baitap/firebase/controller/chitieuthang_controller.dart';
 import 'package:baitap/firebase/controller/controller.dart';
 import 'package:baitap/firebase/controller/firebase_constant.dart';
 import 'package:baitap/model/chi_tieu.dart';
+import 'package:baitap/pages/overview_pages/controller/overview_account_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,15 +43,18 @@ Future<void> main(List<String> args) async {
         Get.put(ChiTieuController()),
         Get.put(ChiTieuThangController()),
         Get.put(addTransactionController()),
+        Get.put(AccountController()),
       });
   ChiTieuController _chitieuController = Get.find();
   ChiTieuThangController _chiTieuThangController = Get.find();
   addTransactionController _addTransactionController = Get.find();
-  await _addTransactionController.set("100000", "3");
+  AccountController _accountController = Get.find();
+  // await _accountController.infoUser();
+  // await _addTransactionController.set("100000", "3");
 
-  await _chiTieuThangController.tinhSodu();
-  var a = _chiTieuThangController.soduconlai;
-  print('sodu: ${a}');
+  // await _chiTieuThangController.tinhSodu();
+  // var a = _chiTieuThangController.soduconlai;
+  // print('sodu: ${a}');
   // _chitieuController.setChiTieu(ChiTieu(
   //     id: '3',
   //     iduser: '1',

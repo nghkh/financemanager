@@ -8,11 +8,11 @@ class UserController extends GetxController {
   final allUser = <UserModel>[].obs;
   late UserModel userModel;
   @override
-  void onReady() {
-    addUser();
-    setUser(userModel);
-    deleteUser(userModel);
-    updateUser(userModel);
+  void onReady() async {
+    await addUser();
+    await setUser(userModel);
+    await deleteUser(userModel);
+    await updateUser(userModel);
     super.onReady();
   }
 

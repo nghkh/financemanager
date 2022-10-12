@@ -11,6 +11,7 @@ class UserModel {
     required this.sdt,
     required this.dob,
   });
+
   final String sdu;
   final String id;
   final String email;
@@ -19,6 +20,7 @@ class UserModel {
   final String gender;
   final String dob;
   final String sdt;
+
   UserModel.fromSnapshot(DocumentSnapshot snapshot)
       : id = snapshot.id,
         email = snapshot['email'],
@@ -28,6 +30,18 @@ class UserModel {
         gender = snapshot['gender'],
         dob = snapshot['dob'],
         sdt = snapshot['sdt'];
+
+  factory UserModel.fromDocument(DocumentSnapshot<Map<String, dynamic>> doc) {
+    return UserModel(
+        id: doc.id,
+        email: doc['email'],
+        sdu: doc['sdu'],
+        firstName: doc['firstname'],
+        lastName: doc['lastname'],
+        gender: doc['gender'],
+        sdt: doc['sdt'],
+        dob: doc['dob']);
+  }
 
   Map<String, dynamic> toJson() => {
         'id': id,
@@ -39,6 +53,7 @@ class UserModel {
         'dob': dob,
         'sdt': sdt,
       };
+
   UserModel.fromJson(
     Map<String, dynamic> json,
   )   : id = json['id'],

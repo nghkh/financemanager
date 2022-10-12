@@ -1,6 +1,6 @@
-
 import 'package:baitap/constant/number_format.dart';
 import 'package:baitap/constant/text_style.dart';
+import 'package:baitap/pages/overview_pages/controller/overview_account_controller.dart';
 import 'package:baitap/pages/overview_pages/controller/wallet_controller.dart';
 import 'package:baitap/pages/overview_pages/tab_wallet/pev_month.dart';
 import 'package:baitap/pages/overview_pages/tab_wallet/this_month_page.dart';
@@ -26,7 +26,7 @@ class OverviewWallet extends StatelessWidget {
                   style: AppTextStyle.textStyle3,
                 ),
                 Text(
-                  '${10000000.toMoneyString()} VNĐ ',
+                  '${int.parse(Get.find<AccountController>().userModel.value.sdu).toMoneyString()} VNĐ ',
                   style: AppTextStyle.textStyle1,
                 ),
               ],

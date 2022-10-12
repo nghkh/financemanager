@@ -23,7 +23,7 @@ class TranscationsPageController extends GetxController {
     DateTime? pickedDate = await showDatePicker(
       context: Get.context!,
       initialDate: selectedDate.value,
-      firstDate: DateTime(2000),
+      firstDate: DateTime(1945),
       lastDate: DateTime(2024),
       //initialEntryMode: DatePickerEntryMode.input,
       // initialDatePickerMode: DatePickerMode.year,

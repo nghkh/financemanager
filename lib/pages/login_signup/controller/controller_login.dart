@@ -1,8 +1,10 @@
 import 'package:baitap/Widget/dialogs.dart';
 import 'package:baitap/firebase/controller/controller.dart';
 import 'package:baitap/firebase/controller/firebase_constant.dart';
+import 'package:baitap/model/users.dart';
 import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
 import 'package:baitap/pages/login_signup/login_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -16,9 +18,15 @@ class CheckBoxLoginController extends GetxController {
 }
 
 class AppAuthController extends GetxController {
+  final allUser = <UserModel>[].obs;
+  @override
+  void onReady() {
+    // TODO: implement onReady
+    super.onReady();
+  }
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
+  late Rx<Map<String, dynamic>> db;
   void login() async {
     try {
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -62,6 +70,7 @@ class AppAuthController extends GetxController {
               'email': emailController.text,
             });
           });
+
     } on FirebaseAuthException catch (e) {
       // this is solely for the Firebase Auth Exception
       // for example : password did not match

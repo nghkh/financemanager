@@ -1,4 +1,5 @@
 import 'package:baitap/firebase/controller/firebase_constant.dart';
+import 'package:baitap/pages/overview_pages/controller/overview_account_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,6 +27,7 @@ class WalletBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => WalletController());
+    Get.lazyPut(() => AccountController());
     // TODO: implement dependencies
   }
 }
