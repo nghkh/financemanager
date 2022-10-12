@@ -73,15 +73,13 @@ class ChiTieuThangController extends GetxController {
     }
   }
 
-  int soduconlai = 0.obs();
+  RxInt soduconlai = 0.obs;
   Future<void> tinhSodu() async {
     try {
       final FirebaseAuth auth = FirebaseAuth.instance;
-
       final user = auth.currentUser;
       final iduser = user?.uid.toString() ?? "1";
       String sdu = '';
-
       await firebaseInitialization.then((value) => {
             Get.put(userController()),
           });
@@ -91,7 +89,6 @@ class ChiTieuThangController extends GetxController {
           _userController.allUser.firstWhere((element) => element.id == iduser);
       sdu = _usersModel.sdu;
       int sodu = int.parse(sdu);
-
       int tongchiphi = 0;
       await firestore
           .collection('ChiTieuThang')
@@ -103,8 +100,7 @@ class ChiTieuThangController extends GetxController {
                   tongchiphi = int.parse(doc['tongchiphi']);
                 })
               });
-      soduconlai = sodu - tongchiphi;
-      print(soduconlai);
+      soduconlai.value = (sodu - tongchiphi);
     } catch (e) {
       print(e);
     }

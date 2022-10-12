@@ -6,19 +6,19 @@ import 'package:baitap/model/chi_tieu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TestBackEnd extends GetView<ChiTieuController> {
+import '../firebase/controller/users_controller.dart';
+
+class TestBackEnd extends StatelessWidget {
   const TestBackEnd({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ChiTieuThangController _chitieuthangController = Get.find();
     return Obx(
-      () => ListView.separated(
-        separatorBuilder: (context, index) => const Divider(),
-        itemCount: controller.allchiTieu.length,
-        itemBuilder: (context, index) {
-          return Testcard(chitieumodel: controller.allchiTieu[index]);
-        },
-      ),
+      () => Center(
+          child: Container(
+              child:
+                  Text(_chitieuthangController.soduconlai.value.toString()))),
     );
   }
 }
@@ -39,14 +39,16 @@ class Testcard extends StatelessWidget {
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await firebaseInitialization.then((value) => {
+        Get.put(userController()),
         Get.put(ChiTieuController()),
         Get.put(ChiTieuThangController()),
         Get.put(addTransactionController()),
       });
+  userController _userController = Get.find();
   ChiTieuController _chitieuController = Get.find();
   ChiTieuThangController _chiTieuThangController = Get.find();
   addTransactionController _addTransactionController = Get.find();
-  await _addTransactionController.set("100000", "3");
+  // await _addTransactionController.set("100000", "3");
 
   await _chiTieuThangController.tinhSodu();
   var a = _chiTieuThangController.soduconlai;

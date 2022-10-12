@@ -98,11 +98,9 @@ class addTransactionController extends GetxController {
           .where((element) => element.iduser == iduser)
           .where((element) => element.idthang == timetoMonth(DateTime.now()))
           .map((e) => tong = tong + int.parse(e.chiphi));
-      print(a);
+
       String tongchiphi = tong.toString();
-      print(tongchiphi.toString());
       var idChiTieuThang = iduser + timetoMonthRemoveSlah(DateTime.now());
-      print(idChiTieuThang);
       _chiTieuThangController.setChiTieuThang(
         ChiTieuThang(
             id: idChiTieuThang,

@@ -7,6 +7,7 @@ import 'firebase_constant.dart';
 class userController extends GetxController {
   final allUser = <UserModel>[].obs;
   late UserModel userModel;
+
   @override
   void onReady() {
     addUser();
@@ -72,6 +73,11 @@ class userController extends GetxController {
     try {
       await firestore.collection('users').doc().update({
         'email': userModel.email,
+        'sdu': userModel.sdu,
+        'firstname': userModel.firstName,
+        'lastname': userModel.lastName,
+        'sdt': userModel.sdt,
+        'dob': userModel.dob,
       });
     } catch (e) {
       print(e);
