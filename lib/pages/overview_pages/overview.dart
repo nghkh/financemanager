@@ -5,7 +5,7 @@ import 'package:baitap/pages/overview_pages/controller/tab_controller.dart';
 class Overview extends StatelessWidget {
   const Overview({Key? key}) : super(key: key);
 
-  TabAppController get controller => Get.find<TabAppController>();
+  // TabAppController get controller => Get.find<TabAppController>();
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class Overview extends StatelessWidget {
       body: Navigator(
         key: Get.nestedKey(1),
         initialRoute: '/overview_home',
-        onGenerateRoute: controller.onGenerateRoute,
+        onGenerateRoute: Get.find<TabAppController>().onGenerateRoute,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Get.toNamed('/add_transaction'),
@@ -64,10 +64,10 @@ class Overview extends StatelessWidget {
                     label: 'Tài khoản',
                   ),
                 ],
-                currentIndex: controller.currentIndex.value,
+                currentIndex: Get.find<TabAppController>().currentIndex.value,
                 unselectedItemColor: Colors.grey,
                 selectedItemColor: Colors.green,
-                onTap: controller.changePage,
+                onTap: Get.find<TabAppController>().changePage,
               ),
             ),
           ),

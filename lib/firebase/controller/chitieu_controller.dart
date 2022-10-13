@@ -12,11 +12,12 @@ class ChiTieuController extends GetxController {
 
   @override
   void onReady() async {
-    // await addChiTieu();
-    // await setChiTieu(chiTieuModel);
+    await addChiTieu();
+    await setChiTieu(chiTieuModel);
     spendingListonMonth.bindStream(lista());
     super.onReady();
   }
+
 
   Stream<List<ChiTieu>> lista() {
     Stream<QuerySnapshot> stream = firestore
@@ -37,6 +38,7 @@ class ChiTieuController extends GetxController {
           querySnapshot.docs.map((e) => ChiTieu.fromSnapshot(e)).toList();
 
       allchiTieu.assignAll(chitieuList);
+      update();
     } catch (e) {
       print(e);
     }
@@ -53,6 +55,7 @@ class ChiTieuController extends GetxController {
         'loai': chiTieuModel.loai,
         'chiphi': chiTieuModel.chiphi,
       });
+      update();
     } catch (e) {
       print(e);
     }

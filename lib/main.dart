@@ -1,4 +1,7 @@
+import 'package:baitap/firebase/controller/chitieu_controller.dart';
+import 'package:baitap/firebase/controller/chitieuthang_controller.dart';
 import 'package:baitap/firebase/controller/controller.dart';
+import 'package:baitap/firebase/controller/users_controller.dart';
 import 'package:baitap/firebase/routes.dart/app_routes.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -12,6 +15,16 @@ int? initScreen;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await firebaseInitialization.then((value) => {
+    Get.put(UserController()),
+    Get.put(ChiTieuController()),
+    Get.put(ChiTieuThangController()),
+    Get.put(addTransactionController()),
+  });
+  UserController _userController = Get.find();
+  ChiTieuController _chitieuController = Get.find();
+  ChiTieuThangController _chiTieuThangController = Get.find();
+  await _chiTieuThangController.tinhSodu();
   // InitialBindings().dependencies();
   SharedPreferences preferences = await SharedPreferences.getInstance();
   initScreen = await preferences.getInt('initScreen');

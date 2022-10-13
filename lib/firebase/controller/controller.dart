@@ -85,6 +85,7 @@ class addTransactionController extends GetxController {
               chiphi: chiphi,
               ngaythang: timetoDate(DateTime.now())),
         );
+        update();
       } catch (e) {
         print(e);
       }
@@ -110,6 +111,7 @@ class addTransactionController extends GetxController {
             thang: timetoMonth(DateTime.now()),
             iduser: iduser),
       );
+      update();
     } catch (e) {
       print(e);
     }

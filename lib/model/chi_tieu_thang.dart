@@ -8,6 +8,7 @@ class ChiTieuThang {
     required this.id,
     required this.iduser,
   });
+
   final String id;
   final String iduser;
   final String thang;
@@ -18,6 +19,7 @@ class ChiTieuThang {
         iduser = snapshot['iduser'],
         thang = snapshot['thang'],
         tongchiphi = snapshot['tongchiphi'];
+
   factory ChiTieuThang.fromJson(Map<String, dynamic> json) {
     return ChiTieuThang(
       id: json['id'],
@@ -26,6 +28,7 @@ class ChiTieuThang {
       tongchiphi: json['tongchiphi'],
     );
   }
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -33,5 +36,14 @@ class ChiTieuThang {
       'thang': thang,
       'tongchiphi': tongchiphi,
     };
+  }
+
+  factory ChiTieuThang.fromDocument(
+      DocumentSnapshot<Map<String, dynamic>> doc) {
+    return ChiTieuThang(
+        tongchiphi: doc['tongchiphi'],
+        thang: doc['thang'],
+        id: doc.id,
+        iduser: doc['iduser']);
   }
 }
