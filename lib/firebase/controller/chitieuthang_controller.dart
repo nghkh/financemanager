@@ -14,7 +14,7 @@ class ChiTieuThangController extends GetxController {
   final allChiTieuThang = <ChiTieuThang>[].obs;
   Rx<ChiTieuThang> chiTieuThang =
       ChiTieuThang(tongchiphi: '1', thang: '1', id: '1', iduser: '1').obs;
-  AccountController accountController = Get.put(AccountController());
+  // AccountController accountController = Get.put(AccountController());
   @override
   void onReady() {
     chiTieuThang.bindStream(streamChiTieuThang());
