@@ -16,6 +16,15 @@ class UserController extends GetxController {
     super.onReady();
   }
 
+  void getUser() async{
+    try{
+      DocumentSnapshot<Map<String, dynamic>> querySnapshot =
+          await firestore.collection('users').doc(auth.currentUser?.uid).get();
+    } catch(e){
+      print(e);
+    }
+  }
+
   Future<void> addUser() async {
     try {
       QuerySnapshot<Map<String, dynamic>> querySnapshot =
