@@ -77,7 +77,7 @@ class OverviewHome extends StatelessWidget {
             const SizedBox(height: 12,),
             Obx(() {
               return Text(
-                '${sodu.soduconlai}',
+                '${sodu.soduconlai.value}',
                 // NumberFormat.decimalPattern('en_us').format(10000000),
                 style: AppTextStyle.textStyle6WBold,
               );
