@@ -9,12 +9,13 @@ class OverviewHomeController extends GetxController {
   var dataChart = <ChartApp>[].obs;
   var series = <charts.Series<ChartApp, String>>[].obs;
   // AccountController controller = Get.put(AccountController());
-  ChiTieuThangController controller = Get.put(ChiTieuThangController());
+  var spendingThisMonth = 1.obs ;
   @override
-  void onInit() {
+  void onReady() {
+    spendingThisMonth.value = int.parse(ChiTieuThangController.spendingMonth.chiTieuThang.value.tongchiphi);
     dataChart.addAll([
       ChartApp('Tháng trước', 0),
-      ChartApp('Tháng này', int.parse(controller.chiTieuThang.value.tongchiphi)),
+      ChartApp('Tháng này', spendingThisMonth.value),
     ]);
 
     series.value = [
@@ -29,5 +30,14 @@ class OverviewHomeController extends GetxController {
 
     // TODO: implement onInit
     super.onInit();
+  }
+}
+
+
+class HomeBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => OverviewHomeController());
+    Get.lazyPut(() => ChiTieuThangController());
   }
 }
