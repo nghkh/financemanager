@@ -4,6 +4,7 @@ import 'package:baitap/constant/text_style.dart';
 import 'package:baitap/firebase/controller/controller.dart';
 import 'package:baitap/pages/login_signup/controller/controller_login.dart';
 import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -81,6 +82,24 @@ class LoginPage extends StatelessWidget {
                     Get.find<AppAuthController>().login();
                   },
                   text: 'Đăng nhập',
+                ),
+                const SizedBox(height: 24),
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      const TextSpan(
+                        text: 'Chưa có tài khoản? ',
+                        style: AppTextStyle.textStyle2,
+                      ),
+                      TextSpan(
+                        text: 'Đăng ký',
+                        style: AppTextStyle.textStyle2Green,
+                        recognizer: TapGestureRecognizer()..onTap = () {
+                          Get.toNamed('/signup'); // Single tapped.
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

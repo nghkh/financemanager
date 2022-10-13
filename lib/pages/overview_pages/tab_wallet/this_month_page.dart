@@ -15,7 +15,9 @@ class ThisMonth extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Obx(
-            () => ListView.separated(
+            () {
+              print(ctController.spendingListonMonth);
+              return ListView.separated(
               itemBuilder: (context, index) {
                 return Container(
                   decoration: BoxDecoration(
@@ -50,7 +52,7 @@ class ThisMonth extends StatelessWidget {
                 );
               },
               itemCount: ctController.spendingListonMonth.value.length,
-            ),
+            );}
           ),
         ),
       ),

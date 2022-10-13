@@ -16,15 +16,15 @@ int? initScreen;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await firebaseInitialization.then((value) => {
-  //   Get.put(UserController()),
   //   Get.put(ChiTieuController()),
+  //   Get.put(UserController()),
   //   Get.put(ChiTieuThangController()),
   //   Get.put(addTransactionController()),
   // });
   // UserController _userController = Get.find();
   // ChiTieuController _chitieuController = Get.find();
   // ChiTieuThangController _chiTieuThangController = Get.find();
-  // await _chiTieuThangController.tinhSodu();
+  // await Get.find.tinhSodu();
   // InitialBindings().dependencies();
   SharedPreferences preferences = await SharedPreferences.getInstance();
   initScreen = await preferences.getInt('initScreen');
@@ -42,6 +42,13 @@ void main() async {
 
   runApp(
     GetMaterialApp(
+      // initialBinding: BindingsBuilder(
+      //       () {
+      //         Get.put(UserController());
+      //         Get.put(ChiTieuController());
+      //         Get.put(ChiTieuThangController());
+      //   },
+      // ),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
