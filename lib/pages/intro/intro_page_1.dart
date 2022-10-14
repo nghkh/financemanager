@@ -9,7 +9,7 @@ class IntroPage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: double.infinity,
+      height: 400,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

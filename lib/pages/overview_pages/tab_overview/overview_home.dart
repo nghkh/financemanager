@@ -72,7 +72,7 @@ class OverviewHome extends StatelessWidget {
             ),
             Obx(() {
               return Text(
-                (int.parse(userController.userModel.value.sdu) - int.parse(ctThangController.chiTieuThang.value.tongchiphi)).toMoneyString(),
+                ctThangController.soduconlai.value.toMoneyString(),
                 style: AppTextStyle.textStyle6WBold,
               );
             }),
