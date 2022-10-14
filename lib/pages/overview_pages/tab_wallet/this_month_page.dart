@@ -1,3 +1,5 @@
+import 'package:baitap/constant/number_format.dart';
+import 'package:baitap/constant/text_style.dart';
 import 'package:baitap/firebase/controller/chitieu_controller.dart';
 import 'package:baitap/pages/overview_pages/tab_wallet/controller.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +16,9 @@ class ThisMonth extends StatelessWidget {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Obx(
-            () => ListView.separated(
+          child: Obx(() {
+            print(ctController.spendingListonMonth);
+            return ListView.separated(
               itemBuilder: (context, index) {
                 return Container(
                   decoration: BoxDecoration(
@@ -30,13 +33,19 @@ class ThisMonth extends StatelessWidget {
                       children: [
                         tabController.kindsofSpending(
                             ctController.spendingListonMonth.value[index].loai),
+                        SizedBox(
+                          width: 16,
+                        ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(ctController
-                                .spendingListonMonth.value[index].ngaythang),
-                            Text(ctController
-                                .spendingListonMonth.value[index].chiphi),
+                            Text(
+                                'Tiền đã chi: ${int.parse(ctController.spendingListonMonth.value[index].chiphi).toMoneyString()}',
+                            style: AppTextStyle.textStyle2,),
+                            Divider(),
+                            Text(
+                                'Ngày giao dịch: ${ctController.spendingListonMonth.value[index].ngaythang}',
+                            style: AppTextStyle.textStyle3,),
                           ],
                         ),
                       ],
@@ -50,8 +59,8 @@ class ThisMonth extends StatelessWidget {
                 );
               },
               itemCount: ctController.spendingListonMonth.value.length,
-            ),
-          ),
+            );
+          }),
         ),
       ),
     );

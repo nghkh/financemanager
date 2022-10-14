@@ -1,6 +1,7 @@
 import 'package:baitap/Widget/button.dart';
 import 'package:baitap/Widget/container_for_profile.dart';
 import 'package:baitap/Widget/profile_pic.dart';
+import 'package:baitap/firebase/controller/firebase_constant.dart';
 import 'package:baitap/firebase/controller/users_controller.dart';
 import 'package:baitap/model/users.dart';
 import 'package:baitap/pages/login_signup/controller/controller_login.dart';
@@ -95,9 +96,11 @@ class OverviewAccount extends StatelessWidget {
                           height: 20,
                         ),
                         AppButton(
-                          onPressed: () =>
+                          onPressed: (){
+
                               Get.find<AppAuthController>()
-                                  .signOut(),
+                                  .signOut();
+                              },
                           text: 'Đăng xuất',
                         ),
                       ],

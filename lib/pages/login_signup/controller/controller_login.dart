@@ -30,11 +30,12 @@ class AppAuthController extends GetxController {
   void login() async {
     try {
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       );
       Get.offAndToNamed('/overview');
-      // credential.user!.uid;
+      var showUid = auth.currentUser!.uid;
+      print(showUid);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         Get.dialog(
@@ -64,7 +65,7 @@ class AppAuthController extends GetxController {
   void register() async {
     try {
       await auth.createUserWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text).then((result) {
+          email: emailController.text.trim(), password: passwordController.text.trim()).then((result) {
             String _userId = result.user!.uid;
             firestore.collection('users').doc(_userId).set({
               'email': emailController.text,

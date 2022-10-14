@@ -13,18 +13,24 @@ class OverviewPlanController extends GetxController {
           title: 'Ngân sách',
           content:
               'Một kế hoạch tài chính giúp cạn cân bằng các khoản thi và khoản chi của mình',
-          onTap: () {}),
+          onTap: () {
+            Get.snackbar('Rất thông cảm', 'Tính năng đang trong quá trình phát triển, sẽ cập nhật trong các phiên bản sắp tới');
+          }),
       DataLVPlan(
           icon: const Icon(Icons.calendar_month_outlined),
           title: 'Giao dịch định kì',
           content: 'Tạo ra các giao dịch định kì',
-          onTap: () {}),
+          onTap: () {
+            Get.snackbar('Rất thông cảm', 'Tính năng đang trong quá trình phát triển, sẽ cập nhật trong các phiên bản sắp tới');
+          }),
       DataLVPlan(
           icon: const Icon(Icons.list),
           title: 'Hoá đơn',
           content:
               'Theo dõi hoá đơn của bạn như điện, thuê nhà, thuê bao internet,..,',
-          onTap: () {}),
+          onTap: () {
+            Get.snackbar('Rất thông cảm', 'Tính năng đang trong quá trình phát triển, sẽ cập nhật trong các phiên bản sắp tới');
+          }),
     ]);
     // TODO: implement onInit
     super.onInit();

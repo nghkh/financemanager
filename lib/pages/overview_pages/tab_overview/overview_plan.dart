@@ -46,41 +46,44 @@ class OverViewSum extends StatelessWidget {
   }
 
   Widget buildBody() {
-    return ListView.separated(
-      shrinkWrap: true,
-        itemBuilder: (context, index) {
-          return Row(
-            children: [
-              controller.dataListViews[index].icon,
-              const SizedBox(width: 8,),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      controller.dataListViews[index].title,
-                      style: AppTextStyle.textStyle2Green,
-                    ),
-                    Text(
-                      controller.dataListViews[index].content,
-                      style: AppTextStyle.textStyle3,
-                    ),
-                  ],
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: ListView.separated(
+        shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return Row(
+              children: [
+                controller.dataListViews[index].icon,
+                const SizedBox(width: 8,),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        controller.dataListViews[index].title,
+                        style: AppTextStyle.textStyle2Green,
+                      ),
+                      Text(
+                        controller.dataListViews[index].content,
+                        style: AppTextStyle.textStyle3,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              IconButton(
-                icon: const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 14,
+                IconButton(
+                  icon: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 14,
+                  ),
+                  onPressed: controller.dataListViews[index].onTap,
                 ),
-                onPressed: controller.dataListViews[index].onTap,
+              ],
+            );
+          },
+          separatorBuilder: (context, index) => const SizedBox(
+                height: 24,
               ),
-            ],
-          );
-        },
-        separatorBuilder: (context, index) => const SizedBox(
-              height: 24,
-            ),
-        itemCount: controller.dataListViews.length);
+          itemCount: controller.dataListViews.length),
+    );
   }
 }

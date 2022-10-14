@@ -8,38 +8,38 @@ class TabWalletController extends GetxController {
       case '1' :
         return Image.asset(
           'assets/icons/eat.png',
-          width: 24,
-          height: 24,
+          width: 36,
+          height: 36,
         );
       case '2' :
         return Image.asset(
           'assets/icons/invoice.png',
-          width: 24,
-          height: 24,
+          width: 36,
+          height: 36,
         );
       case '3':
         return Image.asset(
           'assets/icons/rent.png',
-          width: 24,
-          height: 24,
+          width: 36,
+          height: 36,
         );
       case '4' :
         return Image.asset(
           'assets/icons/energy.png',
-          width: 24,
-          height: 24,
+          width: 36,
+          height: 36,
         );
       case '5' :
         return Image.asset(
           'assets/icons/faucet.png',
-          width: 24,
-          height: 24,
+          width: 36,
+          height: 36,
         );
       default :
         return Image.asset(
           'assets/icons/question.png',
-          width: 24,
-          height: 24,
+          width: 36,
+          height: 36,
         );
     }
   }

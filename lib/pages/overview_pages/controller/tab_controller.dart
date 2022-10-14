@@ -1,5 +1,6 @@
 import 'package:baitap/firebase/controller/users_controller.dart';
 import 'package:baitap/pages/overview_pages/controller/overview_account_controller.dart';
+import 'package:baitap/pages/overview_pages/controller/overview_home_controller.dart';
 import 'package:baitap/pages/overview_pages/controller/wallet_controller.dart';
 import 'package:baitap/pages/overview_pages/tab_overview/overview_account.dart';
 import 'package:baitap/pages/overview_pages/tab_overview/overview_home.dart';
@@ -32,6 +33,7 @@ class TabAppController extends GetxController {
       return GetPageRoute(
         settings: settings,
         page: () => OverviewHome(),
+        binding: HomeBinding(),
       );
     } else if (settings.name == '/wallet') {
       return GetPageRoute(

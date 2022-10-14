@@ -13,8 +13,8 @@ class ChiTieuController extends GetxController {
   @override
   void onReady() async {
     spendingListonMonth.bindStream(lista());
-    await addChiTieu();
-    await setChiTieu(chiTieuModel);
+    // await addChiTieu();
+    // await setChiTieu(chiTieuModel);
     super.onReady();
   }
 

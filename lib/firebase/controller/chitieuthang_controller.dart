@@ -11,6 +11,7 @@ import '../../model/chi_tieu_thang.dart';
 import '../../model/users.dart';
 
 class ChiTieuThangController extends GetxController {
+  static ChiTieuThangController spendingMonth = Get.find<ChiTieuThangController>();
   final allChiTieuThang = <ChiTieuThang>[].obs;
   Rx<ChiTieuThang> chiTieuThang =
       ChiTieuThang(tongchiphi: '1', thang: '1', id: '1', iduser: '1').obs;
