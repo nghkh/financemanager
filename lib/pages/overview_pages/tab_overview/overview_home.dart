@@ -73,7 +73,7 @@ class OverviewHome extends StatelessWidget {
             Obx(() {
               print(ctThangController.tinhSodu());
               return Text(
-                (ctThangController.soduconlai.value).toString(),
+                (ctThangController.soduconlai.value).toMoneyString(),
              //   (int.parse(userController.userModel.value.sdu) - int.parse(ctThangController.chiTieuThang.value.tongchiphi)).toMoneyString(),
                 // NumberFormat.decimalPattern('en_us').format(10000000),
                 style: AppTextStyle.textStyle6WBold,

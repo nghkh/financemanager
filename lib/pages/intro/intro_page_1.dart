@@ -8,8 +8,8 @@ class IntroPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 400,
+    return Container(
+      color: Color.fromARGB(255, 248, 250, 252),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

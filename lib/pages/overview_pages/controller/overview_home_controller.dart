@@ -8,7 +8,6 @@ import '../../../model/chart.dart';
 class OverviewHomeController extends GetxController {
   var dataChart = <ChartApp>[].obs;
   var series = <charts.Series<ChartApp, String>>[].obs;
-  // AccountController controller = Get.put(AccountController());
   var spendingThisMonth = 1.obs ;
   @override
   void onReady() {
