@@ -36,7 +36,7 @@ class ProfileInfo extends StatelessWidget {
                 ));
                 Get.back();
               },
-              icon: Icon(Icons.done),
+              icon: const Icon(Icons.done),
             ),
           ],
         ),
@@ -47,8 +47,8 @@ class ProfileInfo extends StatelessWidget {
             child: Obx(
               () => Column(
                 children: [
-                  ProfilePic(),
-                  SizedBox(height: 20),
+                  const ProfilePic(),
+                  const SizedBox(height: 20),
                   AppTextField(
                     hintText: 'Nhập họ',
                     labelText: 'Họ',
@@ -93,8 +93,8 @@ class ProfileInfo extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
-                  Text('Ngày sinh'),
+                  const SizedBox(height: 20),
+                  const Text('Ngày sinh'),
                   Container(
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),

@@ -15,7 +15,7 @@ final storage = FirebaseStorage.instance;
 final storageRef = FirebaseStorage.instance.ref();
 
 final userRef = firestore.collection('users');
-final ChiTieuRef = firestore.collection('ChiTieu');
-final ChiTieuThangRef = firestore.collection('ChiTieuThang');
+final chiTieuRef = firestore.collection('ChiTieu');
+final chiTieuThangRef = firestore.collection('ChiTieuThang');
 
 

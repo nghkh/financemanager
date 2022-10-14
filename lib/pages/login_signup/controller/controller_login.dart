@@ -3,8 +3,6 @@ import 'package:baitap/firebase/controller/controller.dart';
 import 'package:baitap/firebase/controller/firebase_constant.dart';
 import 'package:baitap/model/users.dart';
 import 'package:baitap/pages/login_signup/controller/controller_signup.dart';
-import 'package:baitap/pages/login_signup/login_page.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -35,7 +33,6 @@ class AppAuthController extends GetxController {
       );
       Get.offAndToNamed('/overview');
       var showUid = auth.currentUser!.uid;
-      print(showUid);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         Get.dialog(

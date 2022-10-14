@@ -1,7 +1,6 @@
 import 'package:baitap/constant/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:onboarding/onboarding.dart';
 
 class IntroPage1 extends StatelessWidget {
   const IntroPage1({Key? key}) : super(key: key);
@@ -9,7 +8,7 @@ class IntroPage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 248, 250, 252),
+      color: const Color.fromARGB(255, 248, 250, 252),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -28,7 +27,7 @@ class IntroPage1 extends StatelessWidget {
             width: 150,
             fit: BoxFit.cover,
           ),
-          Text(
+          const Text(
             'Double your financial capacity',
             style: AppTextStyle.textStyle4Black,
             textAlign: TextAlign.left,

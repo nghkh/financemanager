@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'chi_tieu.dart';
 
 class ChiTieuThang {
   ChiTieuThang({

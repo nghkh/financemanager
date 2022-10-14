@@ -21,7 +21,7 @@ class ThisMonth extends StatelessWidget {
             return ListView.separated(
               itemBuilder: (context, index) {
                 return Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(
                       Radius.circular(12.0),
@@ -33,7 +33,7 @@ class ThisMonth extends StatelessWidget {
                       children: [
                         tabController.kindsofSpending(
                             ctController.spendingListonMonth.value[index].loai),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
                         Column(
@@ -42,7 +42,7 @@ class ThisMonth extends StatelessWidget {
                             Text(
                                 'Tiền đã chi: ${int.parse(ctController.spendingListonMonth.value[index].chiphi).toMoneyString()}',
                             style: AppTextStyle.textStyle2,),
-                            Divider(),
+                            const Divider(),
                             Text(
                                 'Ngày giao dịch: ${ctController.spendingListonMonth.value[index].ngaythang}',
                             style: AppTextStyle.textStyle3,),
@@ -54,7 +54,7 @@ class ThisMonth extends StatelessWidget {
                 );
               },
               separatorBuilder: (context, index) {
-                return SizedBox(
+                return const SizedBox(
                   height: 12,
                 );
               },

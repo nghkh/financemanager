@@ -33,9 +33,9 @@ void main() async {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
-        primaryColor: Colors.green,
+        primaryColor: Colors.green[400],
         iconTheme: const IconThemeData(color: Colors.green, opacity: 1),
-        scaffoldBackgroundColor: Color.fromARGB(255, 248, 250, 252),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 248, 250, 252),
       ),
       initialRoute: initScreen == 0 || initScreen == null ? '/intro' : '/',
       getPages: AppRoutes.routes(),
